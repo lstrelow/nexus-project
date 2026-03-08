@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <meta name="theme-color" content="#ed6e45" />
+    <title>NEXUS Corp – Enterprise Systems Spiel</title>
+    <style>
+      *, *::before, *::after { box-sizing: border-box; }
+      html, body, #root {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+      body {
+        font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      button {
+        font-family: inherit;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+      }
+      img, svg { max-width: 100%; }
+
+      /* Responsive text scaling */
+      h1 { font-size: clamp(28px, 7vw, 52px); }
+      h2 { font-size: clamp(18px, 4vw, 26px); }
+      h3 { font-size: clamp(15px, 3.5vw, 20px); }
+      p  { font-size: clamp(13px, 3vw, 15px); }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
