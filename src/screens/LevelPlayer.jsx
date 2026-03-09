@@ -58,7 +58,7 @@ export function LevelPlayer({ levelNr, onBack, onComplete, xp }) {
               ))}
             </div>
             <button onClick={() => setPhase("scene")} style={{ width: "100%", padding: "16px", borderRadius: 14, background: C.accent, color: "#fff", fontSize: 16, fontWeight: 800, border: "none", cursor: "pointer", fontFamily: "inherit", boxShadow: `0 4px 20px ${C.accent}44` }}>
-              Mission starten →
+              Jetzt starten →
             </button>
           </div>
         )}
@@ -91,7 +91,7 @@ export function LevelPlayer({ levelNr, onBack, onComplete, xp }) {
                 <span style={{ fontSize: 24, flexShrink: 0 }}>{data.outro.badge.split(" ")[0]}</span>
                 <div>
                   <div style={{ color: C.text, fontSize: 13, fontWeight: 700 }}>{data.outro.badge.split(" ").slice(1).join(" ")}</div>
-                  <div style={{ color: C.textLight, fontSize: 11 }}>Abzeichen freigeschaltet</div>
+                  <div style={{ color: C.textLight, fontSize: 11 }}>Abzeichen erhalten</div>
                 </div>
               </div>
             </div>

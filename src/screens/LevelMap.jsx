@@ -35,7 +35,7 @@ export function LevelMap({ module, onSelectLevel, onBack, xp, completed, onEpilo
         <div style={{ padding: "18px 16px", borderRadius: 16, background: C.accent + "0d", border: `1px solid ${C.accent}33`, marginBottom: 24, display: "flex", gap: 14, alignItems: "flex-start" }}>
           <Avatar charKey="maya" size="md" active />
           <div>
-            <div style={{ fontSize: 10, fontWeight: 700, color: C.accent, textTransform: "uppercase", letterSpacing: "2px", marginBottom: 6 }}>Story-Briefing</div>
+            <div style={{ fontSize: 10, fontWeight: 700, color: C.accent, textTransform: "uppercase", letterSpacing: "2px", marginBottom: 6 }}>Die Ausgangslage</div>
             <p style={{ color: C.text, fontSize: 13, lineHeight: 1.7, margin: 0 }}>NEXUS Corp hat 120 Mitarbeitende, drei Lagerstandorte und massive Wachstumsschmerzen. Manuell geführte Tabellen versagen. Ihre Mission über 10 Level: Helfen Sie dabei, die ersten Unternehmenssysteme einzuführen – und bringen Sie das Team mit. Denn Technologie allein reicht nie.</p>
           </div>
         </div>

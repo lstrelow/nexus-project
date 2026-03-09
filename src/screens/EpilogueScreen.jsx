@@ -20,7 +20,7 @@ export function EpilogueScreen({ epilogue, stats, badges, moduleTitle, onBack })
   return (
     <div style={{ minHeight: "100vh", background: C.bgWarm }}>
       <div style={{ background: C.bgCard, borderBottom: `1px solid ${C.border}`, padding: "12px 16px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-        <div style={{ fontSize: 10, fontWeight: 700, color: C.accent, textTransform: "uppercase", letterSpacing: "2px" }}>Modul-Abschluss</div>
+        <div style={{ fontSize: 10, fontWeight: 700, color: C.accent, textTransform: "uppercase", letterSpacing: "2px" }}>Modulabschluss</div>
         <div style={{ fontSize: 13, fontWeight: 700, color: C.text }}>{moduleTitle}</div>
         <div style={{ width: 60 }} />
       </div>
@@ -57,7 +57,7 @@ export function EpilogueScreen({ epilogue, stats, badges, moduleTitle, onBack })
                     {[
                       { icon: "⚡", label: "Gesamte XP",       value: `${stats.xp} XP` },
                       { icon: "🎯", label: "Entscheidungen",    value: stats.decisions },
-                      { icon: "✅", label: "Korrekte Antworten", value: `${stats.correct} / ${stats.total}` },
+                      { icon: "✅", label: "Richtige Antworten", value: `${stats.correct} / ${stats.total}` },
                       { icon: "🏅", label: "Abzeichen",         value: badges.size },
                     ].map((s, i) => (
                       <div key={i} style={{ padding: "12px 14px", borderRadius: 12, background: C.bgCard, border: `1px solid ${C.border}`, display: "flex", alignItems: "center", gap: 10 }}>
@@ -103,7 +103,7 @@ export function EpilogueScreen({ epilogue, stats, badges, moduleTitle, onBack })
             </div>
 
             <div style={{ padding: "16px 18px", borderRadius: 14, background: C.bgCard, border: `1px solid ${C.border}`, marginBottom: 20 }}>
-              <div style={{ fontSize: 10, fontWeight: 700, color: C.second, textTransform: "uppercase", letterSpacing: "2px", marginBottom: 10 }}>Beherrschte Konzepte</div>
+              <div style={{ fontSize: 10, fontWeight: 700, color: C.second, textTransform: "uppercase", letterSpacing: "2px", marginBottom: 10 }}>Gelernte Konzepte</div>
               <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
                 {Array.from(badges).flatMap(lid => LEVEL_META[lid]?.concepts || []).map((k, i) => (
                   <span key={i} style={{ fontSize: 11, padding: "4px 10px", borderRadius: 99, background: C.bgWarm, border: `1px solid ${C.border}`, color: C.textMid }}>{k}</span>

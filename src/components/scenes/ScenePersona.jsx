@@ -50,13 +50,13 @@ export function ScenePersona({ scene, onNext, onStats }) {
             </div>
 
             <div style={{ padding: "10px 14px", borderRadius: 10, background: "#fff5f0", border: `1px solid ${C.accentLight}` }}>
-              <div style={{ fontSize: 10, fontWeight: 700, color: C.accent, textTransform: "uppercase", letterSpacing: "1px", marginBottom: 4 }}>Schmerzpunkte bei NEXUS</div>
+              <div style={{ fontSize: 10, fontWeight: 700, color: C.accent, textTransform: "uppercase", letterSpacing: "1px", marginBottom: 4 }}>Herausforderungen bei NEXUS</div>
               <p style={{ color: C.textMid, fontSize: 12, lineHeight: 1.6, margin: 0 }}>{char.painPoints}</p>
             </div>
           </div>
 
           <SpeechBubble charKey={scene.charKey} text={scene.intro} />
-          <NextBtn onClick={() => setPhase("question")} label="Kennenlernen →" />
+          <NextBtn onClick={() => setPhase("question")} label="Zur Frage →" />
         </>
       )}
 

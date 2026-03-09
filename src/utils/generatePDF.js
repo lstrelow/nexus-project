@@ -51,7 +51,7 @@ export async function generatePDF(stats, badges, moduleTitle) {
     { label: "Gesamte XP",          value: stats.xp + " XP" },
     { label: "Abgeschlossene Level", value: stats.levelCount + " / 10" },
     { label: "Entscheidungen",       value: String(stats.decisions) },
-    { label: "Korrekte Antworten",   value: stats.correct + " / " + stats.total },
+    { label: "Richtige Antworten",   value: stats.correct + " / " + stats.total },
   ];
   const colW = (W - 36) / 2;
   statItems.forEach((s, i) => {
@@ -84,7 +84,7 @@ export async function generatePDF(stats, badges, moduleTitle) {
   // Concepts
   doc.setDrawColor(...col.warm); doc.line(18, y - 2, W - 18, y - 2); y += 4;
   doc.setFont("helvetica", "bold"); doc.setFontSize(10); doc.setTextColor(...col.second);
-  doc.text("BEHERRSCHTE KONZEPTE", 18, y); y += 8;
+  doc.text("GELERNTE KONZEPTE", 18, y); y += 8;
 
   const allConcepts = levelIds.flatMap(lid => LEVEL_META[lid]?.concepts || []);
   const cols = 3;

@@ -41,7 +41,7 @@ export function SceneDefinition({ scene, onNext, onStats }) {
             <p style={{ color: C.textMid, fontSize: 13, lineHeight: 1.65, margin: 0 }}>{d.nexusContext}</p>
           </div>
 
-          <NextBtn onClick={() => setPhase("question")} label="Zur Verständnisfrage →" />
+          <NextBtn onClick={() => setPhase("question")} label="Zur Frage →" />
         </>
       )}
 

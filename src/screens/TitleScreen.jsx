@@ -32,7 +32,7 @@ export function TitleScreen({ onStart }) {
           onMouseOver={e => e.target.style.background = C.accentDark}
           onMouseOut={e => e.target.style.background = C.accent}
         >
-          MISSION STARTEN →
+          JETZT STARTEN →
         </button>
       </div>
     </div>
