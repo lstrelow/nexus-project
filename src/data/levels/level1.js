@@ -16,7 +16,7 @@ export const L1 = {
           { label: "Gegründet",      value: "2018",       icon: "🗓️" },
           { label: "Wachstum p.a.",  value: "~30 %",      icon: "🚀" },
         ],
-        problem: "Das rasante Wachstum hat eine Schattenseite: Jede Abteilung arbeitet mit eigenen Tabellen, eigenen Prozessen und eigenen Datensilos. Es gibt keine integrierte Sicht auf das Unternehmen. Die rechte Hand weiß nicht, was die linke tut – und das kostet NEXUS Corp täglich Geld, Kunden und Wettbewerbsfähigkeit.",
+        problem: "Jede Abteilung arbeitet mit eigenen Tabellen, Prozessen und Datensilos. Es gibt keine integrierte Sicht auf das Unternehmen. Das kostet NEXUS Corp täglich Geld, Kunden und reduziert die Wettbewerbsfähigkeit.",
         systems: [
           { name: "Buchhaltung",     tool: "DATEV + Excel",                   status: "⚠️" },
           { name: "Vertrieb",        tool: 'Outlook + "Carlos-CRM" (Excel)',  status: "⚠️" },
