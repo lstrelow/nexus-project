@@ -28,7 +28,7 @@ export const L1 = {
     },
     {
       id: "1_2", type: "persona", charKey: "tom",
-      intro: "Ich bin seit der dritten Stunde bei NEXUS dabei. Die Lagerhaltung läuft über ein Access-System, das ich selbst programmiert habe. Es tut, was es soll. Meistens. Ich habe schon zwei große IT-Projekte miterlebt – beide sind gescheitert und haben Millionen gekostet. Also verstehen Sie meine Skepsis.",
+      intro: "Ich bin von Anfang an bei NEXUS dabei. Die Lagerhaltung läuft über ein Access-System, das ich selbst programmiert habe. Es tut, was es soll. Meistens. Ich habe schon zwei große IT-Projekte miterlebt – beide sind gescheitert und haben Millionen gekostet. Also verstehen Sie meine Skepsis.",
       dailyRoutine: "Tom beginnt jeden Morgen um 6:30 Uhr mit einer manuellen Bestandsprüfung per Handscanner. Die Daten trägt er in eine Excel-Tabelle ein. Bei Lieferengpässen bemerkt er das Problem oft erst, wenn ein Kunde bereits angerufen und sich beschwert hat.",
       question: "Toms Skepsis gegenüber neuen IT-Systemen basiert auf konkreten Erfahrungen. Was ist die wahrscheinlich tiefste Ursache für seine Haltung?",
       answers: [
