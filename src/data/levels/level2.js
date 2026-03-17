@@ -1,7 +1,7 @@
 export const L2 = {
   intro: {
     charKey: "priya",
-    message: "Bevor wir konkrete Systeme bewerten oder einführen, brauchen wir ein gemeinsames begriffliches Fundament. In meiner Erfahrung scheitern viele IT-Projekte daran, dass alle Beteiligten dieselben Worte benutzen – aber völlig verschiedene Dinge meinen. Heute klären wir die Grundbegriffe der Wirtschaftsinformatik, die uns durch das gesamte Modul begleiten werden.",
+    message: "Bevor wir konkrete Systeme bewerten oder einführen, brauchen wir ein gemeinsames begriffliches Fundament. In meiner Erfahrung scheitern viele IT-Projekte daran, dass alle Beteiligten dieselben Worte benutzen – aber völlig verschiedene Dinge meinen. Heute klären wir die Grundbegriffe der Wirtschaftsinformatik, die uns durch das gesamte Projekt begleiten werden.",
   },
   scenes: [
     {
