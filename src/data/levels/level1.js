@@ -7,13 +7,13 @@ export const L1 = {
     {
       id: "1_1", type: "company", title: "NEXUS Corp – Das Unternehmen",
       content: {
-        description: "NEXUS Corp wurde 2016 als Hardware-Startup in München gegründet und hat sich zu einem mittelständischen Unternehmen mit 120 Mitarbeitenden, drei Lagerstandorten in Deutschland und einem wachsenden europäischen Kundenstamm mit über 850 aktiven Kunden entwickelt. Das jährliche Umsatzwachstum von rund 30 % klingt nach Erfolg – birgt aber eine gefährliche Kehrseite.",
+        description: "NEXUS Corp wurde 2018 als Hardware-Startup in München gegründet und hat sich zu einem mittelständischen Unternehmen mit 120 Mitarbeitenden, drei Lagerstandorten in Deutschland und einem wachsenden europäischen Kundenstamm mit über 850 aktiven Kunden entwickelt. Das jährliche Umsatzwachstum von rund 30 % klingt nach Erfolg – birgt aber eine gefährliche Kehrseite.",
         metrics: [
           { label: "Mitarbeitende",  value: "120",       icon: "👥" },
           { label: "Jahresumsatz",   value: "18 Mio. €", icon: "📈" },
           { label: "Lagerstandorte", value: "3",          icon: "🏭" },
           { label: "Aktive Kunden",  value: "850+",       icon: "🤝" },
-          { label: "Gegründet",      value: "2016",       icon: "🗓️" },
+          { label: "Gegründet",      value: "2018",       icon: "🗓️" },
           { label: "Wachstum p.a.",  value: "~30 %",      icon: "🚀" },
         ],
         problem: "Das rasante Wachstum hat eine Schattenseite: Jede Abteilung arbeitet mit eigenen Tabellen, eigenen Prozessen und eigenen Datensilos. Es gibt keine integrierte Sicht auf das Unternehmen. Die rechte Hand weiß nicht, was die linke tut – und das kostet NEXUS Corp täglich Geld, Kunden und Wettbewerbsfähigkeit.",
