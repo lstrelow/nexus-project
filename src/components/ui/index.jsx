@@ -27,7 +27,7 @@ export function SpeechBubble({ charKey, text, active = true }) {
 }
 
 export function AnswerBtn({ text, state, onClick }) {
-  const s = { normal:{bg:C.bgCard,border:C.border,color:C.text,cursor:"pointer",fw:400}, correct:{bg:C.successBg,border:C.success,color:C.success,cursor:"default",fw:600}, wrong:{bg:C.errorBg,border:C.error,color:C.error,cursor:"default",fw:600}, inactive:{bg:C.bg,border:C.bgDeep,color:C.textLight,cursor:"default",fw:400} }[state] || {bg:C.bgCard,border:C.border,color:C.text,cursor:"pointer",fw:400};
+  const s = { normal:{bg:C.bgCard,border:C.border,color:C.text,cursor:"pointer",fw:400}, selected:{bg:C.accent+"12",border:C.accent,color:C.accent,cursor:"pointer",fw:600}, correct:{bg:C.successBg,border:C.success,color:C.success,cursor:"default",fw:600}, wrong:{bg:C.errorBg,border:C.error,color:C.error,cursor:"default",fw:600}, inactive:{bg:C.bg,border:C.bgDeep,color:C.textLight,cursor:"default",fw:400} }[state] || {bg:C.bgCard,border:C.border,color:C.text,cursor:"pointer",fw:400};
   return <button onClick={onClick} style={{ display:"block", width:"100%", textAlign:"left", padding:"13px 16px", borderRadius:12, border:`1.5px solid ${s.border}`, background:s.bg, color:s.color, fontSize:13, lineHeight:1.55, fontFamily:"inherit", fontWeight:s.fw, transition:"all 0.15s", marginBottom:8, cursor:s.cursor }}>{state==="correct"&&"✓ "}{state==="wrong"&&"✗ "}{text}</button>;
 }
 

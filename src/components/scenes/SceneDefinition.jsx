@@ -2,11 +2,14 @@ import { useState } from "react";
 import { C } from "../../theme.js";
 import { SpeechBubble, AnswerBtn, Feedback, NextBtn } from "../ui/index.jsx";
 
-export function SceneDefinition({ scene, onNext, onStats }) {
+export function SceneDefinition({ scene, onNext }) {
   const [phase, setPhase] = useState("def");
   const [chosen, setChosen] = useState(null);
+  const [checked, setChecked] = useState(false);
   const d = scene.definition;
-  const handleChoice = (i) => { if (chosen === null) { setChosen(i); onStats && onStats(scene.answers[i].correct); } };
+
+  const handleCheck = () => { if (chosen !== null) setChecked(true); };
+
   return (
     <div>
       {phase === "def" && (
@@ -33,8 +36,19 @@ export function SceneDefinition({ scene, onNext, onStats }) {
             <span style={{ fontSize:13, fontWeight:700, color:C.accent }}>{d.term}</span>
           </div>
           <p style={{ color:C.textMid, fontSize:14, fontWeight:600, marginBottom:10 }}>{scene.question}</p>
-          {scene.answers.map((a,i) => { let st="normal"; if(chosen!==null){st=i===chosen?(a.correct?"correct":"wrong"):"inactive";} return <AnswerBtn key={i} text={a.text} state={st} onClick={()=>handleChoice(i)}/>;})}
-          {chosen !== null && <><Feedback text={scene.answers[chosen].feedback} correct={scene.answers[chosen].correct}/><NextBtn onClick={onNext}/></>}
+          {scene.answers.map((a,i) => {
+            let st = "normal";
+            if (checked) { st = i === chosen ? (a.correct ? "correct" : "wrong") : "inactive"; }
+            else if (chosen === i) { st = "selected"; }
+            return <AnswerBtn key={i} text={a.text} state={st} onClick={() => { if (!checked) setChosen(i); }} />;
+          })}
+          {!checked && (
+            <button onClick={handleCheck} disabled={chosen === null}
+              style={{ width:"100%", padding:"14px", borderRadius:13, background:chosen!==null?C.accent:C.bgDeep, color:chosen!==null?"#fff":C.textLight, fontSize:14, fontWeight:700, border:"none", cursor:chosen!==null?"pointer":"default", fontFamily:"inherit", marginTop:4, transition:"all 0.2s" }}>
+              Antwort prüfen
+            </button>
+          )}
+          {checked && <><Feedback text={scene.answers[chosen].feedback} correct={scene.answers[chosen].correct}/><NextBtn onClick={onNext}/></>}
         </>
       )}
     </div>
