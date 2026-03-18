@@ -32,9 +32,9 @@ export const L1 = {
       dailyRoutine: "Tom beginnt jeden Morgen um 6:30 Uhr mit einer manuellen Bestandsprüfung per Handscanner. Die Daten trägt er in eine Excel-Tabelle ein. Bei Lieferengpässen bemerkt er das Problem oft erst, wenn ein Kunde bereits angerufen und sich beschwert hat.",
       question: "Toms Skepsis gegenüber neuen IT-Systemen basiert auf konkreten Erfahrungen. Was ist die wahrscheinlich tiefste Ursache für seine Haltung?",
       answers: [
-        { text: "Er hat Angst, durch Automatisierung seinen Job zu verlieren.", correct: false, feedback: "Das greift zu kurz. Tom ist erfahren, wertvoll und weiß das auch. Seine Skepsis ist rational begründet – nicht existenziell motiviert." },
+        { text: "Er versteht moderne Technologie nicht und möchte das verbergen. Schließlich hat Tom nie eine IT-Ausbildung gemacht und arbeitet lieber mit bewährten analogen Methoden als mit neuen digitalen Systemen.", correct: false, feedback: "Das ist eine voreilige Fehlannahme. Tom hat selbst ein Access-System entwickelt. Seine Skepsis ist strategisch, nicht technisch." },
         { text: "Er hat erlebt, dass teure IT-Projekte oft mehr Probleme schaffen als lösen, und will Bewährtes nicht leichtfertig riskieren.", correct: true, feedback: "Genau. Toms Skepsis ist empirisch fundiert: Er hat gesehen, wie Systeme eingeführt wurden, die die Arbeit schwerer statt leichter machten. Diese Erfahrung zu respektieren – statt zu übergehen – ist der erste Schritt, ihn zum Partner zu machen." },
-        { text: "Er versteht moderne Technologie nicht und möchte das verbergen.", correct: false, feedback: "Das ist eine voreilige Fehlannahme. Tom hat selbst ein Access-System entwickelt. Seine Skepsis ist strategisch, nicht technisch." },
+        { text: "Er hat Angst, durch Automatisierung seinen Job zu verlieren. Tom befürchtet, dass neue Systeme seine jahrelange Expertise überflüssig machen und seine Stellung im Unternehmen gefährden könnten.", correct: false, feedback: "Das greift zu kurz. Tom ist erfahren, wertvoll und weiß das auch. Seine Skepsis ist rational begründet – nicht existenziell motiviert." }
       ],
     },
     {
@@ -44,8 +44,8 @@ export const L1 = {
       question: "Welchen strategischen Nachteil verursacht dieser Zustand für NEXUS Corp?",
       answers: [
         { text: "Kundeninformationen sind personengebunden statt organisationsgebunden – NEXUS Corp verliert wertvolles Wissen bei jedem Personalwechsel.", correct: true, feedback: "Exzellent! Das nennt sich 'implizites Wissen' – es lebt in den Köpfen der Mitarbeitenden, nicht im Unternehmen. Ein CRM-System transformiert implizites in explizites, organisationales Wissen, das unabhängig von Personen erhalten bleibt." },
-        { text: "Carlos hat zu viele Mitarbeitende im Team – das erhöht die Datenkomplexität.", correct: false, feedback: "Das ist keine Frage der Teamgröße. Das Problem ist strukturell: Wissen und Daten gehören dem Unternehmen, nicht einzelnen Personen." },
-        { text: "Die Mitarbeitenden sind nicht gut genug ausgebildet, um Kundendaten richtig zu dokumentieren.", correct: false, feedback: "Das verfehlt das eigentliche Problem. Selbst hochqualifizierte Mitarbeitende können ohne geeignete Systemunterstützung kein nachhaltiges institutionelles Wissen aufbauen." },
+        { text: "Carlos hat zu viele Mitarbeitende im Team – das erhöht die Datenkomplexität. Ein größeres Team bedeutet mehr Datenpunkte, komplexere Beziehungen und damit einen höheren Bedarf an strukturierten Verwaltungswerkzeugen.", correct: false, feedback: "Das ist keine Frage der Teamgröße. Das Problem ist strukturell: Wissen und Daten gehören dem Unternehmen, nicht einzelnen Personen." },
+        { text: "Die Mitarbeitenden sind nicht gut genug ausgebildet, um Kundendaten richtig zu dokumentieren. Ohne geeignete Schulungen und klare Prozesse kann selbst das beste System nicht effektiv genutzt werden.", correct: false, feedback: "Das verfehlt das eigentliche Problem. Selbst hochqualifizierte Mitarbeitende können ohne geeignete Systemunterstützung kein nachhaltiges institutionelles Wissen aufbauen." }
       ],
     },
     {
@@ -54,9 +54,9 @@ export const L1 = {
       dailyRoutine: "Lena verbringt täglich mehrere Stunden damit, Daten aus sieben verschiedenen Quellen zu sammeln, zu bereinigen und in ein Gesamtbild zu fügen. Ihre Berichte an Maya sind beim Versenden oft bereits 2–3 Tage alt und damit für operative Entscheidungen kaum noch nutzbar.",
       question: "Wie bezeichnet man die Situation, in der Daten in getrennten, nicht verbundenen Systemen verschiedener Abteilungen gespeichert werden?",
       answers: [
-        { text: "Datenfragmentierung", correct: false, feedback: "Datenfragmentierung beschreibt eher die physische Aufteilung von Dateien. Der treffendere Begriff für das strukturelle Problem bei NEXUS ist ein anderer." },
         { text: "Datensilo", correct: true, feedback: "Richtig! Ein Datensilo bezeichnet isolierte Datenspeicher innerhalb einer Organisation, die nicht mit anderen Systemen verbunden sind. Datensilos entstehen organisch, wenn Abteilungen eigenständig Lösungen entwickeln – und genau das macht Enterprise Systems notwendig." },
         { text: "Datenredundanz", correct: false, feedback: "Datenredundanz (mehrfaches Speichern derselben Daten) ist oft eine Folge von Datensilos, aber nicht der Begriff für die Grundsituation selbst." },
+        { text: "Datenfragmentierung", correct: false, feedback: "Datenfragmentierung beschreibt eher die physische Aufteilung von Dateien. Der treffendere Begriff für das strukturelle Problem bei NEXUS ist ein anderer." }
       ],
     },
     {
@@ -65,9 +65,9 @@ export const L1 = {
       dailyRoutine: "Priya verbringt ihre Zeit damit, die bestehende Systemlandschaft zu verstehen und gleichzeitig akute Probleme zu lösen: Serverausfälle, Datenverluste durch manuelle Fehler, eine kritische Sicherheitslücke in der selbst entwickelten Lagerverwaltung.",
       question: "Wie beschreibt man den Zustand einer IT-Landschaft, die sich über viele Jahre ohne zentrale Planung durch eigenständige Abteilungsentscheidungen entwickelt hat?",
       answers: [
+        { text: "Eine schlecht verwaltete IT, deren Mitarbeitende keine technischen Kompetenzen haben. Inkompetenz auf allen Ebenen — von der Führung bis zu den Mitarbeitenden — ist die häufigste Ursache für dysfunktionale IT-Landschaften in mittelständischen Unternehmen.", correct: false, feedback: "Das wäre eine unfaire Bewertung. NEXUS-Mitarbeitende haben pragmatische Lösungen für reale Probleme entwickelt – das ist menschlich verständlich. Das Problem ist strukturell, nicht personell." },
         { text: "Eine organisch gewachsene IT-Landschaft mit historisch bedingter Heterogenität und fehlender übergreifender Architekturstrategie.", correct: true, feedback: "Sehr treffend! Man spricht von 'historisch gewachsener IT' oder auch 'Shadow IT'. Dieser Zustand ist bei mittelständischen Unternehmen extrem häufig. Er entsteht, wenn lokale Optimierung (jede Abteilung löst ihr Problem) globale Effizienz verhindert." },
-        { text: "Eine schlecht verwaltete IT, deren Mitarbeitende keine technischen Kompetenzen haben.", correct: false, feedback: "Das wäre eine unfaire Bewertung. NEXUS-Mitarbeitende haben pragmatische Lösungen für reale Probleme entwickelt – das ist menschlich verständlich. Das Problem ist strukturell, nicht personell." },
-        { text: "Eine veraltete IT, die vollständig neu gebaut werden muss.", correct: false, feedback: "Das ist oft die erste Intuition – aber in der Praxis ist ein Komplettaustausch selten sinnvoll oder möglich. Meist geht es um gezielte Integration, Modernisierung und schrittweise Ablösung." },
+        { text: "Eine veraltete IT, die vollständig neu gebaut werden muss. Ein kompletter Neustart auf der grünen Wiese ermöglicht es, alle technischen Schulden loszuwerden und eine moderne, zukunftssichere Infrastruktur aufzubauen.", correct: false, feedback: "Das ist oft die erste Intuition – aber in der Praxis ist ein Komplettaustausch selten sinnvoll oder möglich. Meist geht es um gezielte Integration, Modernisierung und schrittweise Ablösung." }
       ],
     },
     {
@@ -75,9 +75,9 @@ export const L1 = {
       message: "Sie haben jetzt alle fünf Schlüsselpersonen bei NEXUS Corp kennengelernt. Jede Person repräsentiert eine andere Perspektive auf dieselbe Realität – und das ist kein Zufall. Enterprise Information Systems existieren immer im sozialen Kontext einer Organisation. Bevor wir Lösungen diskutieren, möchte ich Ihre erste Einschätzung hören.",
       question: "Was ist die fundamentalste Ursache für die Probleme bei NEXUS Corp?",
       answers: [
-        { text: "Fehlende Technologie – NEXUS Corp hat schlicht die falschen oder zu wenige Softwaresysteme.", correct: false, feedback: "Technologie ist Teil der Antwort – aber sie greift zu kurz. Neue Software allein löst keine Probleme, wenn Prozesse unklar und Menschen nicht eingebunden sind." },
-        { text: "Fehlende Integration – Daten, Prozesse und Menschen arbeiten in isolierten Silos statt als verbundenes System.", correct: true, feedback: "Ausgezeichnet! Sie denken bereits systemisch. Das Kernproblem ist fehlende Integration auf drei Ebenen: Daten (Silos), Prozesse (Medienbrüche) und Menschen (Abteilungsdenken). Enterprise Systems sind im Kern Integrationsplattformen." },
         { text: "Fehlendes Management – die Führungskräfte treffen schlechte strategische Entscheidungen.", correct: false, feedback: "Das wäre eine voreilige und falsche Schlussfolgerung. Maya, Tom, Carlos, Lena und Priya handeln rational innerhalb ihrer Rahmenbedingungen. Das Problem ist strukturell, nicht personell." },
+        { text: "Fehlende Integration – Daten, Prozesse und Menschen arbeiten in isolierten Silos statt als verbundenes System.", correct: true, feedback: "Ausgezeichnet! Sie denken bereits systemisch. Das Kernproblem ist fehlende Integration auf drei Ebenen: Daten (Silos), Prozesse (Medienbrüche) und Menschen (Abteilungsdenken). Enterprise Systems sind im Kern Integrationsplattformen." },
+        { text: "Fehlende Technologie – NEXUS Corp hat schlicht die falschen oder zu wenige Softwaresysteme.", correct: false, feedback: "Technologie ist Teil der Antwort – aber sie greift zu kurz. Neue Software allein löst keine Probleme, wenn Prozesse unklar und Menschen nicht eingebunden sind." }
       ],
     },
   ],

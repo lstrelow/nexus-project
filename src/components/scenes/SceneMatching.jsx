@@ -1,9 +1,32 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { C } from "../../theme.js";
 import { SpeechBubble, NextBtn } from "../ui/index.jsx";
 
+function shuffleArray(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
 export function SceneMatching({ scene, onNext }) {
-  const terms = [...new Set(scene.pairs.map(p => p.term))];
+  // Shuffle terms and situations independently, once on mount
+  const { shuffledTerms, shuffledPairs } = useMemo(() => {
+    const terms = [...new Set(scene.pairs.map(p => p.term))];
+    let shuffledTerms = shuffleArray(terms);
+    let shuffledPairs = shuffleArray([...scene.pairs]);
+    // Ensure no situation aligns with its correct term by position
+    for (let attempt = 0; attempt < 50; attempt++) {
+      const aligned = shuffledPairs.some((p, i) => i < shuffledTerms.length && p.term === shuffledTerms[i]);
+      if (!aligned) break;
+      shuffledTerms = shuffleArray(terms);
+      shuffledPairs = shuffleArray([...scene.pairs]);
+    }
+    return { shuffledTerms, shuffledPairs };
+  }, [scene.id]);
+
   const [selTerm, setSelTerm] = useState(null);
   const [assignments, setAssignments] = useState({});
   const [submitted, setSubmitted] = useState(false);
@@ -20,7 +43,6 @@ export function SceneMatching({ scene, onNext }) {
       setAssignments(prev => ({ ...prev, [sit]: selTerm }));
       setSelTerm(null);
     } else if (assignments[sit]) {
-      // No term selected — click removes existing assignment
       setAssignments(prev => { const next = { ...prev }; delete next[sit]; return next; });
     }
   };
@@ -34,7 +56,7 @@ export function SceneMatching({ scene, onNext }) {
       <p style={{ color:C.textLight, fontSize:11, marginBottom:14 }}>Tipp: Zugeordnete Begriffe können durch erneutes Anklicken der Situation wieder entfernt werden.</p>
 
       <div style={{ display:"flex", flexWrap:"wrap", gap:8, marginBottom:20 }}>
-        {terms.map(t => {
+        {shuffledTerms.map(t => {
           const used = Object.values(assignments).includes(t);
           return (
             <button key={t} onClick={() => handleTermClick(t)} disabled={submitted}
@@ -46,7 +68,7 @@ export function SceneMatching({ scene, onNext }) {
       </div>
 
       <div style={{ display:"flex", flexDirection:"column", gap:8, marginBottom:16 }}>
-        {scene.pairs.map((pair, i) => {
+        {shuffledPairs.map((pair, i) => {
           const m = assignments[pair.situation];
           const correct = submitted ? m === pair.term : null;
           return (
