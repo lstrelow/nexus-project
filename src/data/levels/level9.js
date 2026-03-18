@@ -3,7 +3,7 @@ export const L9 = {
   scenes:[
     { id:"9_1", type:"definition", charKey:"priya",
       charMessage:"Der Begriff Cloud wird inflationär verwendet. Was Cloud Computing technisch und konzeptionell bedeutet, ist präziser definiert als viele denken.",
-      definition:{ term:"Cloud Computing – Definition und Grundidee", summary:"Cloud Computing stellt eine Ansammlung von Diensten, Anwendungen und Ressourcen dar, die dem Nutzer flexibel und skalierbar über das Internet angeboten werden, ohne langfristige Kapitalbindung und IT-spezifisches Know-how vorauszusetzen. Es ist eine Form des IT-Sourcings auf Mietbasis.",
+      definition:{ term:"Cloud Computing – Definition und Idee", summary:"Cloud Computing stellt eine Ansammlung von Diensten, Anwendungen und Ressourcen dar, die dem Nutzer flexibel und skalierbar über das Internet angeboten werden, ohne langfristige Kapitalbindung und IT-spezifisches Know-how vorauszusetzen. Es ist eine Form des IT-Sourcings auf Mietbasis.",
         aspects:[
           {icon:"🌐",title:"Bedarfsorientiert",text:"IT-Ressourcen werden genau dann bezogen wenn sie gebraucht werden — keine Vorratshaltung von Kapazitäten"},
           {icon:"💳",title:"Mietmodell",text:"Ausschließlich Miete und verbrauchsabhängige Bezahlung — keine Investition in eigene Hardware"},
