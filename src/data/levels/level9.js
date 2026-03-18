@@ -69,6 +69,14 @@ export const L9 = {
         {text:"On-Premise und Cloud sind keine Gegensätze sondern orthogonale Dimensionen — die richtige Entscheidung hängt von Datensensibilität, Skalierungsbedarf und Kostenstruktur ab.",correct:true,feedback:"Genau die Kernbotschaft. Hybrid-Ansätze kombinieren das Beste beider Welten — und in der Praxis ist das die häufigste Lösung."},
         {text:"Sicherheit ist das entscheidende Kriterium — On-Premise ist immer sicherer als Cloud.",correct:false,feedback:"Sicherheit ist ein wichtiges Kriterium, aber keine pauschale Stärke von On-Premise."},
       ] },
+    { id:"9_6", type:"reflection", charKey:"maya",
+      message:"Wir haben nun alle Grundlagen erarbeitet. Heute treffe ich die Entscheidung, auf die NEXUS Corp seit Jahren wartet. Wir führen alle sechs Komponenten ein — als Hybrid Cloud: ERP und CRM für Echtzeit-Integration unserer Kernprozesse. SCM damit Tom Lieferengpässe drei Wochen im Voraus sieht. SRM für eine einheitliche Lieferantenstrategie. Ein Shopsystem damit Carlos auch digital verkaufen kann. Und BI damit Lena endlich analysiert statt Daten zu sammeln. Die Finanzdaten bleiben On-Premise, alles andere in der Public Cloud. Es geht los.",
+      question:"Welches Argument hat Maya letztlich überzeugt, alle sechs Komponenten auf einmal einzuführen statt schrittweise?",
+      answers:[
+        {text:"Weil ein Komplettpaket günstiger ist als sechs Einzellösungen.",correct:false,feedback:"Kosten waren ein Faktor, aber nicht das entscheidende Argument. Die Stärke liegt in der Integration."},
+        {text:"Weil die Probleme aller Abteilungen miteinander verknüpft sind — eine isolierte Lösung für Tom löst nicht Carlos' Problem. Nur integrierte Systeme beseitigen die Datensilos vollständig.",correct:true,feedback:"Genau der Kerngedanke aus Level 1: NEXUS' Problem war nie fehlende Technologie, sondern fehlende Integration. Sechs Einzellösungen ohne gemeinsame Datenbasis wären nur sechs neue Silos."},
+        {text:"Weil der Implementierungspartner einen Rabatt für das Gesamtpaket angeboten hat.",correct:false,feedback:"Ein Rabatt mag praktisch sein, ist aber kein strategisches Argument für eine Entscheidung dieser Tragweite."},
+      ] },
   ],
-  outro:{ charKey:"priya", message:"NEXUS wird wird eine hybriden Ansatz verfolgen. Das Richtige an der richtigen Stelle — das ist nicht Kompromiss, das ist Strategie. Dank Ihnen haben wir jetzt das benötigte Wissen, um die anstehenden Entscheidungen fundierter treffen zu können.", xp:300, badge:"☁️ Cloud-Strategin" },
+  outro:{ charKey:"maya", message:"Die Entscheidung ist gefallen. ERP, CRM, SCM, SRM, Shopsystem und BI — als Hybrid Cloud. NEXUS Corp beginnt seine größte Transformation. In sechs Monaten werden wir wissen ob wir es richtig gemacht haben.", xp:300, badge:"☁️ Cloud-Strategin" },
 };
