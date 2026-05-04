@@ -65,13 +65,18 @@ function PyramidViz({ aspects }) {
   );
 }
 
-export function SceneDefinition({ scene, onNext }) {
+export function SceneDefinition({ scene, onNext, onAnswer }) {
   const [phase, setPhase] = useState("def");
   const [chosen, setChosen] = useState(null);
   const [checked, setChecked] = useState(false);
   const d = scene.definition;
 
-  const handleCheck = () => { if (chosen !== null) setChecked(true); };
+  const handleCheck = () => {
+    if (chosen !== null) {
+      setChecked(true);
+      onAnswer?.(scene.answers[chosen].correct);
+    }
+  };
 
   return (
     <div>

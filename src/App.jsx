@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { MODULES, MAX_PLAYABLE_LEVEL } from "./data/modules.js";
+import { MAX_PLAYABLE_LEVEL } from "./data/modules.js";
 import { EPILOGUE_M1 } from "./data/epilogue.js";
 import { TitleScreen }    from "./screens/TitleScreen.jsx";
 import { ModuleSelect }   from "./screens/ModuleSelect.jsx";
@@ -15,6 +15,29 @@ export default function App() {
   const [level,     setLevel]     = useState(null);
   const [completed, setCompleted] = useState(new Set());
 
+  const [streak, setStreak] = useState({
+    active: false,
+    cohort: null,
+    current: 0,
+    sessionMax: 0,
+  });
+
+  const startSession = (cohort) => {
+    setStreak({ active: true, cohort, current: 0, sessionMax: 0 });
+  };
+
+  const endSession = () => {
+    setStreak({ active: false, cohort: null, current: 0, sessionMax: 0 });
+  };
+
+  const onAnswer = (isCorrect) => {
+    if (!streak.active) return;
+    setStreak(prev => {
+      const newCurrent = isCorrect ? prev.current + 1 : 0;
+      return { ...prev, current: newCurrent, sessionMax: Math.max(prev.sessionMax, newCurrent) };
+    });
+  };
+
   const completeLevel = (levelId, goToEpilogue) => {
     setCompleted(prev => new Set([...prev, levelId]));
     if (goToEpilogue) setScreen("epilogue");
@@ -25,7 +48,14 @@ export default function App() {
 
   return (
     <div style={{ fontFamily:"'Segoe UI',system-ui,sans-serif" }}>
-      {screen === "title"        && <TitleScreen onStart={() => setScreen("moduleselect")} />}
+      {screen === "title"        && (
+        <TitleScreen
+          onStart={() => setScreen("moduleselect")}
+          streak={streak}
+          onStartSession={startSession}
+          onEndSession={endSession}
+        />
+      )}
       {screen === "moduleselect" && <ModuleSelect onSelect={m => { setModule(m); setScreen("levelmap"); }} onBack={() => setScreen("title")} />}
       {screen === "levelmap"     && module && (
         <LevelMap
@@ -42,6 +72,9 @@ export default function App() {
           isLastLevel={level.id === TOTAL_LEVELS}
           onBack={() => setScreen("levelmap")}
           onComplete={completeLevel}
+          streakActive={streak.active}
+          currentStreak={streak.current}
+          onAnswer={onAnswer}
         />
       )}
       {screen === "epilogue"     && module && (

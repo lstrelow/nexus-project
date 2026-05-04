@@ -2,7 +2,7 @@ import { useState } from "react";
 import { C } from "../../theme.js";
 import { SpeechBubble, AnswerBtn, Feedback, NextBtn } from "../ui/index.jsx";
 
-export function SceneReflection({ scene, onNext }) {
+export function SceneReflection({ scene, onNext, onAnswer }) {
   const [chosen, setChosen] = useState(null);
   const [checked, setChecked] = useState(false);
 
@@ -21,7 +21,7 @@ export function SceneReflection({ scene, onNext }) {
         return <AnswerBtn key={i} text={a.text} state={st} onClick={() => { if (!checked) setChosen(i); }} />;
       })}
       {!checked && (
-        <button onClick={() => { if (chosen !== null) setChecked(true); }} disabled={chosen === null}
+        <button onClick={() => { if (chosen !== null) { setChecked(true); onAnswer?.(scene.answers[chosen].correct); } }} disabled={chosen === null}
           style={{ width:"100%", padding:"14px", borderRadius:13, background:chosen!==null?C.accent:C.bgDeep, color:chosen!==null?"#fff":C.textLight, fontSize:14, fontWeight:700, border:"none", cursor:chosen!==null?"pointer":"default", fontFamily:"inherit", marginTop:4, transition:"all 0.2s" }}>
           Antwort prüfen
         </button>

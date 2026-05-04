@@ -13,7 +13,7 @@ function LogoPlaceholder() {
   return <img src="logo.png" height="32" style={{ display:"block" }} />;
 }
 
-export function LevelPlayer({ levelNr, isLastLevel, onBack, onComplete }) {
+export function LevelPlayer({ levelNr, isLastLevel, onBack, onComplete, streakActive, currentStreak, onAnswer }) {
   const data  = LEVEL_DATA[levelNr];
   const [phase, setPhase] = useState("intro");
   const [idx,   setIdx]   = useState(0);
@@ -33,12 +33,10 @@ export function LevelPlayer({ levelNr, isLastLevel, onBack, onComplete }) {
   return (
     <div style={{ minHeight:"100vh", background:C.bg }}>
       <div style={{ background:C.bgCard, borderBottom:`1px solid ${C.border}`, padding:"12px 24px", display:"flex", alignItems:"center", boxShadow:"0 1px 8px rgba(0,0,0,0.05)", position:"relative" }}>
-        {/* Left: back arrow only */}
         <button onClick={handleBack}
           style={{ color:C.textLight, fontSize:20, background:"none", border:"none", cursor:"pointer", fontFamily:"inherit", lineHeight:1, padding:"0 4px" }}>
           ←
         </button>
-        {/* Center: level info */}
         <div style={{ position:"absolute", left:"50%", transform:"translateX(-50%)", textAlign:"center" }}>
           <div style={{ color:C.textLight, fontSize:10, textTransform:"uppercase", letterSpacing:"2px" }}>Level {levelNr}</div>
           <div style={{ color:C.text, fontSize:17, fontWeight:700 }}>
@@ -47,8 +45,12 @@ export function LevelPlayer({ levelNr, isLastLevel, onBack, onComplete }) {
               : levelTitle}
           </div>
         </div>
-        {/* Right: logo */}
-        <div style={{ marginLeft:"auto" }}>
+        <div style={{ marginLeft:"auto", display:"flex", alignItems:"center", gap:12 }}>
+          {streakActive && (
+            <div style={{ fontSize:13, fontWeight:900, color: currentStreak > 0 ? C.accent : C.textLight }}>
+              {currentStreak > 0 ? `🔥 ${currentStreak}` : "🔥 0"}
+            </div>
+          )}
           <LogoPlaceholder />
         </div>
       </div>
@@ -74,10 +76,10 @@ export function LevelPlayer({ levelNr, isLastLevel, onBack, onComplete }) {
         {phase === "scene" && scene && (
           <>
             {scene.type === "company"    && <SceneCompany    key={scene.id} scene={scene} onNext={next}/>}
-            {scene.type === "persona"    && <ScenePersona    key={scene.id} scene={scene} onNext={next}/>}
-            {scene.type === "reflection" && <SceneReflection key={scene.id} scene={scene} onNext={next}/>}
-            {scene.type === "definition" && <SceneDefinition key={scene.id} scene={scene} onNext={next}/>}
-            {scene.type === "matching"   && <SceneMatching   key={scene.id} scene={scene} onNext={next}/>}
+            {scene.type === "persona"    && <ScenePersona    key={scene.id} scene={scene} onNext={next} onAnswer={onAnswer}/>}
+            {scene.type === "reflection" && <SceneReflection key={scene.id} scene={scene} onNext={next} onAnswer={onAnswer}/>}
+            {scene.type === "definition" && <SceneDefinition key={scene.id} scene={scene} onNext={next} onAnswer={onAnswer}/>}
+            {scene.type === "matching"   && <SceneMatching   key={scene.id} scene={scene} onNext={next} onAnswer={onAnswer}/>}
           </>
         )}
 

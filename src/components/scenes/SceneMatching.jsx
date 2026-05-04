@@ -11,7 +11,7 @@ function shuffleArray(arr) {
   return a;
 }
 
-export function SceneMatching({ scene, onNext }) {
+export function SceneMatching({ scene, onNext, onAnswer }) {
   // Shuffle terms and situations independently, once on mount
   const { shuffledTerms, shuffledPairs } = useMemo(() => {
     const terms = [...new Set(scene.pairs.map(p => p.term))];
@@ -85,7 +85,7 @@ export function SceneMatching({ scene, onNext }) {
       </div>
 
       {!submitted && (
-        <button onClick={() => setSubmitted(true)} disabled={!allDone}
+        <button onClick={() => { setSubmitted(true); onAnswer?.(score === scene.pairs.length); }} disabled={!allDone}
           style={{ width:"100%", padding:"14px", borderRadius:13, background:allDone?C.second:C.bgDeep, color:allDone?"#fff":C.textLight, fontSize:14, fontWeight:700, border:"none", cursor:allDone?"pointer":"default", fontFamily:"inherit", marginBottom:8, transition:"all 0.2s" }}>
           {allDone ? "Zuordnungen prüfen" : `Noch ${scene.pairs.length - Object.keys(assignments).length} offen…`}
         </button>
