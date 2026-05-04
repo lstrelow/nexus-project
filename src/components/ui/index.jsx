@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { C } from "../../theme.js";
 import { CHARACTERS } from "../../data/characters.js";
 export { Avatar } from "./Avatar.jsx";
@@ -12,6 +13,7 @@ export function XPBar({ xp }) {
     </div>
   );
 }
+XPBar.propTypes = { xp: PropTypes.number };
 
 export function SpeechBubble({ charKey, text, active = true }) {
   const c = CHARACTERS[charKey];
@@ -25,6 +27,11 @@ export function SpeechBubble({ charKey, text, active = true }) {
     </div>
   );
 }
+SpeechBubble.propTypes = {
+  charKey: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  active: PropTypes.bool,
+};
 
 export function AnswerBtn({ text, state, onClick, letter }) {
   const s = { normal:{bg:C.bgCard,border:C.border,color:C.text,cursor:"pointer",fw:400}, selected:{bg:C.accent+"12",border:C.accent,color:C.accent,cursor:"pointer",fw:600}, correct:{bg:C.successBg,border:C.success,color:C.success,cursor:"default",fw:600}, wrong:{bg:C.errorBg,border:C.error,color:C.error,cursor:"default",fw:600}, inactive:{bg:C.bg,border:C.bgDeep,color:C.textLight,cursor:"default",fw:400} }[state] || {bg:C.bgCard,border:C.border,color:C.text,cursor:"pointer",fw:400};
@@ -35,11 +42,25 @@ export function AnswerBtn({ text, state, onClick, letter }) {
     </button>
   );
 }
+AnswerBtn.propTypes = {
+  text: PropTypes.string.isRequired,
+  state: PropTypes.oneOf(["normal", "selected", "correct", "wrong", "inactive"]).isRequired,
+  onClick: PropTypes.func.isRequired,
+  letter: PropTypes.string,
+};
 
 export function Feedback({ text, correct }) {
   return <div style={{ padding:"14px 16px", borderRadius:12, background:correct?C.successBg:C.errorBg, border:`1px solid ${correct?C.success:C.error}`, color:correct?C.success:C.error, fontSize:13, lineHeight:1.65, marginTop:4, marginBottom:12 }}><strong>{correct?"✓ Richtig! ":"✗ Nicht ganz. "}</strong>{text}</div>;
 }
+Feedback.propTypes = {
+  text: PropTypes.string.isRequired,
+  correct: PropTypes.bool.isRequired,
+};
 
 export function NextBtn({ onClick, label = "Weiter →" }) {
-  return <button onClick={onClick} style={{ width:"100%", padding:"14px", borderRadius:13, background:C.accent, color:"#fff", fontSize:14, fontWeight:700, border:"none", cursor:"pointer", fontFamily:"inherit", transition:"opacity 0.15s" }} onMouseOver={e=>e.target.style.opacity="0.88"} onMouseOut={e=>e.target.style.opacity="1"}>{label}</button>;
+  return <button onClick={onClick} style={{ width:"100%", padding:"14px", borderRadius:13, background:C.accent, color:"#fff", fontSize:14, fontWeight:700, border:"none", cursor:"pointer", fontFamily:"inherit", transition:"opacity 0.15s" }} onMouseOver={e=>e.target.style.opacity="0.88"} onFocus={e=>e.target.style.opacity="0.88"} onMouseOut={e=>e.target.style.opacity="1"} onBlur={e=>e.target.style.opacity="1"}>{label}</button>;
 }
+NextBtn.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  label: PropTypes.string,
+};

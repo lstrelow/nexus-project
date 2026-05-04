@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 import { C } from "../theme.js";
 
 const CHARS = {
@@ -20,7 +21,7 @@ const MAYA_SPEECH = [
 ];
 
 function LogoPlaceholder() {
-  return <img src="logo.png" height="32" style={{ display:"block" }} />;
+  return <img src="logo.png" alt="NEXUS Corp" height="32" style={{ display:"block" }} />;
 }
 
 function AnimatedScene({ onDone }) {
@@ -46,7 +47,6 @@ function AnimatedScene({ onDone }) {
     }
   }, [step]);
 
-  // Auto-advance
   useEffect(() => {
     if (step < CHARS_LIST.length) return;
     if (speechIdx >= MAYA_SPEECH.length - 1) return;
@@ -103,9 +103,9 @@ function AnimatedScene({ onDone }) {
             <p style={{ color:"#fff", fontSize:17, lineHeight:1.65, margin:0, fontWeight:500 }}>{MAYA_SPEECH[speechIdx]}</p>
           </div>
           <div style={{ display:"flex", gap:8, justifyContent:"center", marginBottom:16 }}>
-            {MAYA_SPEECH.map((_,i) => (
-              <div key={i} onClick={() => goTo(i)}
-                style={{ width:9, height:9, borderRadius:"50%", background:i===speechIdx?"#ed6e45":"rgba(255,255,255,0.25)", transition:"background 0.3s", cursor:"pointer" }} />
+            {MAYA_SPEECH.map((speech, i) => (
+              <button key={speech} onClick={() => goTo(i)} aria-label={`Folie ${i+1}`}
+                style={{ width:9, height:9, borderRadius:"50%", background:i===speechIdx?"#ed6e45":"rgba(255,255,255,0.25)", transition:"background 0.3s", cursor:"pointer", border:"none", padding:0 }} />
             ))}
           </div>
           <button onClick={handleNext}
@@ -117,6 +117,9 @@ function AnimatedScene({ onDone }) {
     </div>
   );
 }
+AnimatedScene.propTypes = {
+  onDone: PropTypes.func.isRequired,
+};
 
 function FireworkCanvas() {
   useEffect(() => {
@@ -137,7 +140,6 @@ function FireworkCanvas() {
       }
     };
 
-    // Fire 5 bursts at random intervals
     const timeouts = [];
     for (let b = 0; b < 5; b++) {
       timeouts.push(setTimeout(() => burst(canvas.width*(0.2+Math.random()*0.6), canvas.height*(0.2+Math.random()*0.5)), b * 600));
@@ -189,7 +191,7 @@ export function EpilogueScreen({ epilogue, moduleTitle, onBack }) {
 
   if (phase === "animation") return <AnimatedScene onDone={() => setPhase("story")} />;
 
-  const currentScene = !done ? epilogue.scenes[idx] : null;
+  const currentScene = done ? null : epilogue.scenes[idx];
   const char = currentScene ? CHARS[currentScene.charKey] : null;
 
   return (
@@ -201,7 +203,6 @@ export function EpilogueScreen({ epilogue, moduleTitle, onBack }) {
         @keyframes scaleIn { from{transform:scale(0.8);opacity:0} to{transform:scale(1);opacity:1} }
       `}</style>
 
-      {/* Header */}
       <div style={{ background:C.bgCard, borderBottom:`1px solid ${C.border}`, padding:"12px 24px", display:"flex", alignItems:"center", boxShadow:"0 1px 8px rgba(0,0,0,0.05)", position:"relative" }}>
         <div style={{ width:40 }} />
         <div style={{ position:"absolute", left:"50%", transform:"translateX(-50%)" }}>
@@ -221,17 +222,29 @@ export function EpilogueScreen({ epilogue, moduleTitle, onBack }) {
           <p style={{ color:C.textMid, fontSize:14, margin:0 }}>{epilogue.subtitle}</p>
         </div>
 
-        {!done && (
+        {done ? (
+          <div style={{ animation:"scaleIn 0.5s ease-out forwards" }}>
+            <div style={{ textAlign:"center", marginBottom:24 }}>
+              <div style={{ fontSize:64, marginBottom:12 }}>🏆</div>
+              <h2 style={{ color:C.text, fontSize:26, fontWeight:900, margin:"0 0 8px" }}>Das war&apos;s!</h2>
+            </div>
+            <div style={{ padding:"20px 24px", borderRadius:20, background:C.bgCard, border:`2px solid ${C.accent}33`, marginBottom:24, boxShadow:`0 8px 32px ${C.accent}22` }}>
+              <p style={{ color:C.textMid, fontSize:15, lineHeight:1.8, margin:0, fontStyle:"italic" }}>„{epilogue.closing}"</p>
+            </div>
+            <button onClick={onBack}
+              style={{ width:"100%", padding:"14px", borderRadius:13, background:"transparent", color:C.textMid, fontSize:13, fontWeight:600, border:`1px solid ${C.border}`, cursor:"pointer", fontFamily:"inherit" }}>
+              Zurück zur Modulübersicht
+            </button>
+          </div>
+        ) : (
           <>
-            {/* Clickable dots */}
             <div style={{ display:"flex", justifyContent:"center", gap:8, marginBottom:24 }}>
-              {epilogue.scenes.map((_,i) => (
-                <div key={i} onClick={() => goTo(i)}
-                  style={{ width:9, height:9, borderRadius:"50%", background:i===idx?C.accent:C.bgDeep, transition:"background 0.3s", cursor:"pointer" }} />
+              {epilogue.scenes.map((sc, i) => (
+                <button key={sc.text} onClick={() => goTo(i)} aria-label={`Szene ${i+1}`}
+                  style={{ width:9, height:9, borderRadius:"50%", background:i===idx?C.accent:C.bgDeep, transition:"background 0.3s", cursor:"pointer", border:"none", padding:0 }} />
               ))}
             </div>
 
-            {/* Scene card */}
             <div key={idx}
               style={{ background:C.bgCard, border:`1.5px solid ${char ? char.color+"44" : C.border}`, borderRadius:18, padding:"18px 20px", marginBottom:20, animation:`${slideDir==="in"?"slideInLeft":"slideOutLeft"} 0.3s ease-out forwards` }}>
               {char && (
@@ -254,23 +267,17 @@ export function EpilogueScreen({ epilogue, moduleTitle, onBack }) {
             </button>
           </>
         )}
-
-        {done && (
-          <div style={{ animation:"scaleIn 0.5s ease-out forwards" }}>
-            <div style={{ textAlign:"center", marginBottom:24 }}>
-              <div style={{ fontSize:64, marginBottom:12 }}>🏆</div>
-              <h2 style={{ color:C.text, fontSize:26, fontWeight:900, margin:"0 0 8px" }}>Das war's!</h2>
-            </div>
-            <div style={{ padding:"20px 24px", borderRadius:20, background:C.bgCard, border:`2px solid ${C.accent}33`, marginBottom:24, boxShadow:`0 8px 32px ${C.accent}22` }}>
-              <p style={{ color:C.textMid, fontSize:15, lineHeight:1.8, margin:0, fontStyle:"italic" }}>„{epilogue.closing}"</p>
-            </div>
-            <button onClick={onBack}
-              style={{ width:"100%", padding:"14px", borderRadius:13, background:"transparent", color:C.textMid, fontSize:13, fontWeight:600, border:`1px solid ${C.border}`, cursor:"pointer", fontFamily:"inherit" }}>
-              Zurück zur Modulübersicht
-            </button>
-          </div>
-        )}
       </div>
     </div>
   );
 }
+EpilogueScreen.propTypes = {
+  epilogue: PropTypes.shape({
+    title: PropTypes.string,
+    subtitle: PropTypes.string,
+    scenes: PropTypes.array,
+    closing: PropTypes.string,
+  }).isRequired,
+  moduleTitle: PropTypes.string.isRequired,
+  onBack: PropTypes.func.isRequired,
+};

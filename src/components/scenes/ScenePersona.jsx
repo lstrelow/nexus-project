@@ -1,4 +1,5 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 import { C } from "../../theme.js";
 import { CHARACTERS } from "../../data/characters.js";
 import { Avatar, SpeechBubble, AnswerBtn, Feedback, NextBtn } from "../ui/index.jsx";
@@ -28,7 +29,7 @@ export function ScenePersona({ scene, onNext, onAnswer }) {
             </div>
             <div style={{ padding:"10px 14px", borderRadius:10, background:char.color+"0f", border:`1px solid ${char.color}33`, marginBottom:10 }}>
               <div style={{ fontSize:10, fontWeight:700, color:char.color, textTransform:"uppercase", letterSpacing:"1px", marginBottom:6 }}>Aufgaben</div>
-              <div style={{ display:"flex", flexWrap:"wrap", gap:6 }}>{char.tasks.map((t,i) => <span key={i} style={{ fontSize:11, padding:"3px 9px", borderRadius:99, background:char.color+"18", color:char.color, fontWeight:600 }}>{t}</span>)}</div>
+              <div style={{ display:"flex", flexWrap:"wrap", gap:6 }}>{char.tasks.map(t => <span key={t} style={{ fontSize:11, padding:"3px 9px", borderRadius:99, background:char.color+"18", color:char.color, fontWeight:600 }}>{t}</span>)}</div>
             </div>
             <div style={{ padding:"10px 14px", borderRadius:10, background:"#fff5f0", border:`1px solid ${C.accentLight}` }}>
               <div style={{ fontSize:10, fontWeight:700, color:C.accent, textTransform:"uppercase", letterSpacing:"1px", marginBottom:4 }}>Herausforderungen bei NEXUS</div>
@@ -45,19 +46,26 @@ export function ScenePersona({ scene, onNext, onAnswer }) {
           <p style={{ color:C.textMid, fontSize:14, fontWeight:600, marginBottom:10 }}>{scene.question}</p>
           {scene.answers.map((a,i) => {
             let st = "normal";
-            if (checked) { st = i === chosen ? (a.correct ? "correct" : "wrong") : "inactive"; }
-            else if (chosen === i) { st = "selected"; }
-            return <AnswerBtn key={i} letter={String.fromCodePoint(65+i)} text={a.text} state={st} onClick={() => { if (!checked) setChosen(i); }} />;
+            if (checked) {
+              if (i === chosen) { st = a.correct ? "correct" : "wrong"; }
+              else { st = "inactive"; }
+            } else if (chosen === i) { st = "selected"; }
+            return <AnswerBtn key={a.text} letter={String.fromCodePoint(65+i)} text={a.text} state={st} onClick={() => { if (!checked) setChosen(i); }} />;
           })}
-          {!checked && (
-            <button onClick={() => { if (chosen !== null) { setChecked(true); onAnswer?.(scene.answers[chosen].correct); } }} disabled={chosen === null}
-              style={{ width:"100%", padding:"14px", borderRadius:13, background:chosen!==null?C.accent:C.bgDeep, color:chosen!==null?"#fff":C.textLight, fontSize:14, fontWeight:700, border:"none", cursor:chosen!==null?"pointer":"default", fontFamily:"inherit", marginTop:4, transition:"all 0.2s" }}>
-              Antwort prüfen
-            </button>
-          )}
-          {checked && <><Feedback text={scene.answers[chosen].feedback} correct={scene.answers[chosen].correct}/><NextBtn onClick={onNext}/></>}
+          {checked
+            ? <><Feedback text={scene.answers[chosen].feedback} correct={scene.answers[chosen].correct}/><NextBtn onClick={onNext}/></>
+            : <button onClick={() => { if (chosen !== null) { setChecked(true); onAnswer?.(scene.answers[chosen].correct); } }} disabled={chosen === null}
+                style={{ width:"100%", padding:"14px", borderRadius:13, background:chosen===null?C.bgDeep:C.accent, color:chosen===null?C.textLight:"#fff", fontSize:14, fontWeight:700, border:"none", cursor:chosen===null?"default":"pointer", fontFamily:"inherit", marginTop:4, transition:"all 0.2s" }}>
+                Antwort prüfen
+              </button>
+          }
         </>
       )}
     </div>
   );
 }
+ScenePersona.propTypes = {
+  scene: PropTypes.object.isRequired,
+  onNext: PropTypes.func.isRequired,
+  onAnswer: PropTypes.func,
+};

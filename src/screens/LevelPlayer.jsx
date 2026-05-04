@@ -1,4 +1,5 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 import { C } from "../theme.js";
 import { MODULES } from "../data/modules.js";
 import { LEVEL_DATA, LEARNING_GOALS } from "../data/levels/index.js";
@@ -10,7 +11,7 @@ import { SceneDefinition } from "../components/scenes/SceneDefinition.jsx";
 import { SceneMatching }   from "../components/scenes/SceneMatching.jsx";
 
 function LogoPlaceholder() {
-  return <img src="logo.png" height="32" style={{ display:"block" }} />;
+  return <img src="logo.png" alt="NEXUS Corp" height="32" style={{ display:"block" }} />;
 }
 
 export function LevelPlayer({ levelNr, isLastLevel, onBack, onComplete, streakActive, currentStreak, onAnswer }) {
@@ -58,7 +59,7 @@ export function LevelPlayer({ levelNr, isLastLevel, onBack, onComplete, streakAc
       <div style={{ maxWidth:640, margin:"0 auto", padding:"20px 16px" }}>
         {phase === "scene" && (
           <div style={{ display:"flex", gap:4, marginBottom:22 }}>
-            {data.scenes.map((_,i) => <div key={i} style={{ flex:1, height:4, borderRadius:99, background:i<=idx?C.accent:C.bgDeep, transition:"background 0.3s" }}/>)}
+            {data.scenes.map((s,i) => <div key={s.id} style={{ flex:1, height:4, borderRadius:99, background:i<=idx?C.accent:C.bgDeep, transition:"background 0.3s" }}/>)}
           </div>
         )}
 
@@ -67,7 +68,7 @@ export function LevelPlayer({ levelNr, isLastLevel, onBack, onComplete, streakAc
             <SpeechBubble charKey={data.intro.charKey} text={data.intro.message} active />
             <div style={{ padding:"14px 18px", borderRadius:14, background:C.bgWarm, border:`1px solid ${C.border}`, marginBottom:20 }}>
               <p style={{ color:C.textLight, fontSize:10, textTransform:"uppercase", letterSpacing:"2px", fontWeight:700, margin:"0 0 8px" }}>In diesem Level lernen Sie...</p>
-              {(LEARNING_GOALS[levelNr]||[]).map((t,i) => <p key={i} style={{ color:C.textMid, fontSize:13, margin:"4px 0" }}>• {t}</p>)}
+              {(LEARNING_GOALS[levelNr]||[]).map(t => <p key={t} style={{ color:C.textMid, fontSize:13, margin:"4px 0" }}>• {t}</p>)}
             </div>
             <button onClick={() => setPhase("scene")} style={{ width:"100%", padding:"16px", borderRadius:14, background:C.accent, color:"#fff", fontSize:16, fontWeight:800, border:"none", cursor:"pointer", fontFamily:"inherit", boxShadow:`0 4px 20px ${C.accent}44` }}>Level starten →</button>
           </div>
@@ -106,3 +107,12 @@ export function LevelPlayer({ levelNr, isLastLevel, onBack, onComplete, streakAc
     </div>
   );
 }
+LevelPlayer.propTypes = {
+  levelNr: PropTypes.number.isRequired,
+  isLastLevel: PropTypes.bool.isRequired,
+  onBack: PropTypes.func.isRequired,
+  onComplete: PropTypes.func.isRequired,
+  streakActive: PropTypes.bool,
+  currentStreak: PropTypes.number,
+  onAnswer: PropTypes.func,
+};

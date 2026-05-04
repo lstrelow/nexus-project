@@ -1,4 +1,5 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 import { C, shadowLg } from "../theme.js";
 import { CHARACTERS } from "../data/characters.js";
 import { COHORTS } from "../data/cohorts.js";
@@ -107,6 +108,17 @@ function TeacherPanel({ streak, onStartSession, onEndSession, onClose }) {
     </div>
   );
 }
+TeacherPanel.propTypes = {
+  streak: PropTypes.shape({
+    active: PropTypes.bool.isRequired,
+    cohort: PropTypes.string,
+    current: PropTypes.number.isRequired,
+    sessionMax: PropTypes.number.isRequired,
+  }).isRequired,
+  onStartSession: PropTypes.func.isRequired,
+  onEndSession: PropTypes.func.isRequired,
+  onClose: PropTypes.func.isRequired,
+};
 
 export function TitleScreen({ onStart, streak, onStartSession, onEndSession }) {
   const [showPanel, setShowPanel] = useState(false);
@@ -160,3 +172,14 @@ export function TitleScreen({ onStart, streak, onStartSession, onEndSession }) {
     </div>
   );
 }
+TitleScreen.propTypes = {
+  onStart: PropTypes.func.isRequired,
+  streak: PropTypes.shape({
+    active: PropTypes.bool.isRequired,
+    cohort: PropTypes.string,
+    current: PropTypes.number.isRequired,
+    sessionMax: PropTypes.number.isRequired,
+  }).isRequired,
+  onStartSession: PropTypes.func.isRequired,
+  onEndSession: PropTypes.func.isRequired,
+};

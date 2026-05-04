@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import { C } from "../../theme.js";
 import { SpeechBubble, AnswerBtn, Feedback, NextBtn } from "../ui/index.jsx";
 
@@ -6,23 +7,25 @@ function PyramidViz({ aspects }) {
   const [hovered, setHovered] = React.useState(null);
   const colors = ["#ed6e45", "#e8845f", "#e09a7a", "#d8b096", "#cfc6b2"];
   const total = aspects.length;
-  const active = hovered !== null ? aspects[total - 1 - hovered] : null;
+  const active = hovered === null ? null : aspects[total - 1 - hovered];
 
   const stripNumber = (s) => s.replace(/^\d+\.\s*/, "");
 
   return (
     <div style={{ marginBottom:14 }}>
-      {/* Pyramid */}
       <div style={{ width:"100%" }}>
         {[...aspects].reverse().map((a, ri) => {
           const i = total - 1 - ri;
           const widthPct = 100 - (i / (total - 1)) * 70;
           const isHovered = hovered === ri;
           return (
-            <div key={i} style={{ display:"flex", justifyContent:"center", marginBottom:3 }}>
-              <div
+            <div key={a.title} style={{ display:"flex", justifyContent:"center", marginBottom:3 }}>
+              <button
                 onMouseEnter={() => setHovered(ri)}
                 onMouseLeave={() => setHovered(null)}
+                onFocus={() => setHovered(ri)}
+                onBlur={() => setHovered(null)}
+                aria-label={stripNumber(a.title)}
                 style={{
                   width:`${widthPct}%`,
                   height:52,
@@ -31,22 +34,23 @@ function PyramidViz({ aspects }) {
                   display:"flex",
                   alignItems:"center",
                   justifyContent:"center",
-                  cursor:"default",
+                  cursor:"pointer",
                   opacity: hovered === null || isHovered ? 1 : 0.6,
                   transform: isHovered ? "scale(1.03)" : "scale(1)",
                   transition:"all 0.15s",
                   boxShadow: isHovered ? "0 2px 12px rgba(0,0,0,0.15)" : "none",
+                  border:"none",
+                  fontFamily:"inherit",
                 }}>
                 <span style={{ color:"#fff", fontSize:12, fontWeight:700, whiteSpace:"nowrap" }}>
                   {stripNumber(a.title)}
                 </span>
-              </div>
+              </button>
             </div>
           );
         })}
       </div>
 
-      {/* Description panel */}
       <div style={{ minHeight:56, marginTop:8 }}>
         {active ? (
           <div style={{ padding:"14px 16px", borderRadius:12, background:C.bgWarm, border:`1px solid ${C.border}`, width:"100%" }}>
@@ -64,6 +68,12 @@ function PyramidViz({ aspects }) {
     </div>
   );
 }
+PyramidViz.propTypes = {
+  aspects: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string,
+    text: PropTypes.string,
+  })).isRequired,
+};
 
 export function SceneDefinition({ scene, onNext, onAnswer }) {
   const [phase, setPhase] = useState("def");
@@ -92,7 +102,7 @@ export function SceneDefinition({ scene, onNext, onAnswer }) {
             <PyramidViz aspects={d.aspects} />
           ) : (
             <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit,minmax(140px,1fr))", gap:10, marginBottom:14 }}>
-              {d.aspects.map((a,i) => <div key={i} style={{ padding:"12px 14px", borderRadius:12, background:C.bgWarm, border:`1px solid ${C.border}` }}><div style={{ fontSize:20, marginBottom:6 }}>{a.icon}</div><div style={{ color:C.text, fontSize:12, fontWeight:700, marginBottom:3 }}>{a.title}</div><div style={{ color:C.textMid, fontSize:11, lineHeight:1.5 }}>{a.text}</div></div>)}
+              {d.aspects.map(a => <div key={a.title} style={{ padding:"12px 14px", borderRadius:12, background:C.bgWarm, border:`1px solid ${C.border}` }}><div style={{ fontSize:20, marginBottom:6 }}>{a.icon}</div><div style={{ color:C.text, fontSize:12, fontWeight:700, marginBottom:3 }}>{a.title}</div><div style={{ color:C.textMid, fontSize:11, lineHeight:1.5 }}>{a.text}</div></div>)}
             </div>
           )}
 
@@ -112,19 +122,26 @@ export function SceneDefinition({ scene, onNext, onAnswer }) {
           <p style={{ color:C.textMid, fontSize:14, fontWeight:600, marginBottom:10 }}>{scene.question}</p>
           {scene.answers.map((a,i) => {
             let st = "normal";
-            if (checked) { st = i === chosen ? (a.correct ? "correct" : "wrong") : "inactive"; }
-            else if (chosen === i) { st = "selected"; }
-            return <AnswerBtn key={i} letter={String.fromCodePoint(65+i)} text={a.text} state={st} onClick={() => { if (!checked) setChosen(i); }} />;
+            if (checked) {
+              if (i === chosen) { st = a.correct ? "correct" : "wrong"; }
+              else { st = "inactive"; }
+            } else if (chosen === i) { st = "selected"; }
+            return <AnswerBtn key={a.text} letter={String.fromCodePoint(65+i)} text={a.text} state={st} onClick={() => { if (!checked) setChosen(i); }} />;
           })}
-          {!checked && (
-            <button onClick={handleCheck} disabled={chosen === null}
-              style={{ width:"100%", padding:"14px", borderRadius:13, background:chosen!==null?C.accent:C.bgDeep, color:chosen!==null?"#fff":C.textLight, fontSize:14, fontWeight:700, border:"none", cursor:chosen!==null?"pointer":"default", fontFamily:"inherit", marginTop:4, transition:"all 0.2s" }}>
-              Antwort prüfen
-            </button>
-          )}
-          {checked && <><Feedback text={scene.answers[chosen].feedback} correct={scene.answers[chosen].correct}/><NextBtn onClick={onNext}/></>}
+          {checked
+            ? <><Feedback text={scene.answers[chosen].feedback} correct={scene.answers[chosen].correct}/><NextBtn onClick={onNext}/></>
+            : <button onClick={handleCheck} disabled={chosen === null}
+                style={{ width:"100%", padding:"14px", borderRadius:13, background:chosen===null?C.bgDeep:C.accent, color:chosen===null?C.textLight:"#fff", fontSize:14, fontWeight:700, border:"none", cursor:chosen===null?"default":"pointer", fontFamily:"inherit", marginTop:4, transition:"all 0.2s" }}>
+                Antwort prüfen
+              </button>
+          }
         </>
       )}
     </div>
   );
 }
+SceneDefinition.propTypes = {
+  scene: PropTypes.object.isRequired,
+  onNext: PropTypes.func.isRequired,
+  onAnswer: PropTypes.func,
+};
