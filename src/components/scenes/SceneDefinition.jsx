@@ -114,7 +114,7 @@ export function SceneDefinition({ scene, onNext, onAnswer }) {
             let st = "normal";
             if (checked) { st = i === chosen ? (a.correct ? "correct" : "wrong") : "inactive"; }
             else if (chosen === i) { st = "selected"; }
-            return <AnswerBtn key={i} text={a.text} state={st} onClick={() => { if (!checked) setChosen(i); }} />;
+            return <AnswerBtn key={i} letter={String.fromCodePoint(65+i)} text={a.text} state={st} onClick={() => { if (!checked) setChosen(i); }} />;
           })}
           {!checked && (
             <button onClick={handleCheck} disabled={chosen === null}

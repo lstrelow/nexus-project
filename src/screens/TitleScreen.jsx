@@ -25,8 +25,8 @@ function TeacherPanel({ streak, onStartSession, onEndSession, onClose }) {
         aria-label="Schließen"
         style={{ position:"absolute", inset:0, background:"rgba(42,31,20,0.55)", border:"none", cursor:"pointer", padding:0 }}
       />
-      <div role="dialog" aria-modal="true"
-        style={{ background:C.bgCard, borderRadius:20, padding:28, maxWidth:400, width:"100%", boxShadow:shadowLg, position:"relative", zIndex:1 }}>
+      <dialog open
+        style={{ background:C.bgCard, borderRadius:20, padding:28, maxWidth:400, width:"100%", boxShadow:shadowLg, position:"relative", zIndex:1, border:"none", margin:0 }}>
 
         <button onClick={onClose}
           style={{ position:"absolute", top:16, right:16, background:"none", border:"none", fontSize:20, cursor:"pointer", color:C.textLight, lineHeight:1 }}>
@@ -103,7 +103,7 @@ function TeacherPanel({ streak, onStartSession, onEndSession, onClose }) {
             })}
           </div>
         </div>
-      </div>
+      </dialog>
     </div>
   );
 }
