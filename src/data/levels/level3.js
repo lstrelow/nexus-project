@@ -75,7 +75,7 @@ export const L3 = {
         summary: "SRM bezeichnet die IT-gestützte Gestaltung der strategischen und operativen Beschaffungsprozesse und des Lieferantenmanagements, ausgehend von einer Beschaffungsgesamtstrategie (Appelfeller & Buchholz, 2011).",
         aspects: [
           { icon: "🔍", title: "Lieferantenauswahl", text: "Systematische Identifikation geeigneter Lieferanten nach Preis, Qualität, Zuverlässigkeit und Nachhaltigkeit" },
-          { icon: "🤝", title: "Lieferantenentwicklung", text: "Aufbau langfristiger Partnerschaften durch strategische Allianzen und Entwicklungs- programme" },
+          { icon: "🤝", title: "Lieferanten- entwicklung", text: "Aufbau langfristiger Partnerschaften durch strategische Allianzen und Entwicklungs- programme" },
           { icon: "💡", title: "Innovationspartner", text: "Identifikation von Lieferanten als Quellen für Innovationen — nicht nur als Warenlieferanten" },
           { icon: "🏷️", title: "Beispiele", text: "SAP Ariba, Ivalua, Coupa" }
         ],
@@ -84,7 +84,7 @@ export const L3 = {
       question: "Worin liegt der strategische Unterschied zwischen SRM und reiner Einkaufsverwaltung?",
       answers: [
         { text: "SRM lohnt sich erst ab einer kritischen Anzahl von Lieferantenbeziehungen — bei kleinen Unternehmen mit wenigen Lieferanten ist der Aufwand für ein dediziertes System unverhältnismäßig.", correct: false, feedback: "Auch mittelständische Unternehmen wie NEXUS profitieren von strukturiertem Lieferantenmanagement." },
-        { text: "SRM betrachtet Lieferanten als strategische Partner und steuert die Beziehung aktiv nach Gesamtstrategie.", correct: true, feedback: "Genau. SRM überführt den Einkauf von einer operativen Funktion in eine strategische: Lieferanten werden langfristig ausgewählt, entwickelt und als Innovationsquellen genutzt." },
+        { text: "SRM betrachtet Lieferanten als strategische Partner und steuert die Beziehung aktiv nach einer Gesamtstrategie.", correct: true, feedback: "Genau. SRM überführt den Einkauf von einer operativen Funktion in eine strategische: Lieferanten werden langfristig ausgewählt, entwickelt und als Innovationsquellen genutzt." },
         { text: "SRM reduziert vor allem den operativen Aufwand im Einkauf durch automatisierte Bestellprozesse, standardisierte Anfragen und digitale Vertragsabwicklung mit den Lieferanten.", correct: false, feedback: "Automatisierung ist ein mögliches Feature, aber nicht der strategische Kern." }
       ],
     },
@@ -117,8 +117,8 @@ export const L3 = {
         summary: "Business Intelligence ist ein Oberbegriff für Anwendungen, Infrastruktur, Werkzeuge und Best Practices für den Zugang zu und die Analyse von Daten und Information für die strategische Entscheidungsfindung (Gartner, 2013).",
         aspects: [
           { icon: "🗄️", title: "Datenbereitstellung", text: "Konsolidierung von Daten aus verschiedenen Quellen — strukturierte Bereitstellung über ein Data Warehouse" },
-          { icon: "📐", title: "Informationsgenerierung", text: "Entwicklung endbenutzer- freundlicher Berichtskomponenten auf Basis statistischer Modelle" },
-          { icon: "📊", title: "Informationsbereitstellung", text: "Visualisierungs- komponenten für zielgruppengerechte und konsistente Ergebnispräsentation" },
+          { icon: "📐", title: "Informations- generierung", text: "Entwicklung endbenutzer- freundlicher Berichtskomponenten auf Basis statistischer Modelle" },
+          { icon: "📊", title: "Informations- bereitstellung", text: "Visualisierungs- komponenten für zielgruppengerechte und konsistente Ergebnispräsentation" },
           { icon: "🏷️", title: "Beispiele", text: "Tableau, SAP Analytics, AWS QuickSight, IBM Cognos" }
         ],
         nexusContext: "Lenas manuelle Excel-Berichte sind beim Versenden bereits veraltet. BI würde Daten aus ERP, CRM und SCM automatisch konsolidieren und Maya Echtzeit-Kennzahlen liefern.",
