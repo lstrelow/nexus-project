@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { C } from "../../theme.js";
 import { resolveCharacter } from "../../data/characters.js";
 
-export function Avatar({ charKey, size = "md", active = false, moduleId }) {
+export function Avatar({ charKey, size = "md", active = false, moduleId, hideRole = false }) {
   const c = resolveCharacter(charKey, moduleId);
   const dim = size === "lg" ? 60 : size === "sm" ? 30 : 44;
   const fs = size === "lg" ? 28 : size === "sm" ? 14 : 20;
@@ -14,7 +14,7 @@ export function Avatar({ charKey, size = "md", active = false, moduleId }) {
       {size !== "sm" && (
         <div style={{ textAlign:"center" }}>
           <div style={{ color:C.text, fontSize:10, fontWeight:700 }}>{c.name}</div>
-          <div style={{ color:C.textLight, fontSize:9 }}>{c.role}</div>
+          {!hideRole && <div style={{ color:C.textLight, fontSize:9 }}>{c.role}</div>}
         </div>
       )}
     </div>
@@ -25,4 +25,5 @@ Avatar.propTypes = {
   size: PropTypes.oneOf(["sm", "md", "lg"]),
   active: PropTypes.bool,
   moduleId: PropTypes.string,
+  hideRole: PropTypes.bool,
 };

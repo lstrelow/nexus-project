@@ -143,7 +143,7 @@ export function TitleScreen({ onStart, streak, onStartSession, onEndSession }) {
           <span style={{ color:C.accent, fontWeight:700 }}>Sind Sie bereit für diese Herausforderung?</span>
         </p>
         <div style={{ display:"flex", justifyContent:"center", gap:"clamp(8px,3vw,16px)", marginBottom:28, flexWrap:"wrap" }}>
-          {["maya", "tom", "carlos", "lena", "priya"].map(k => <Avatar key={k} charKey={k} size="md" />)}
+          {["maya", "tom", "carlos", "lena", "priya", "sophie"].map(k => <Avatar key={k} charKey={k} size="md" hideRole />)}
         </div>
         <button onClick={onStart}
           style={{ padding:"14px clamp(24px,6vw,44px)", background:C.accent, color:"#fff", fontWeight:900, fontSize:"clamp(14px,4vw,17px)", borderRadius:16, border:"none", cursor:"pointer", boxShadow:`0 6px 28px ${C.accent}44`, fontFamily:"inherit", width:"min(100%,320px)" }}
