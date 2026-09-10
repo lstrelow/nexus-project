@@ -2,7 +2,7 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 import { C } from "../theme.js";
 import { MODULES } from "../data/modules.js";
-import { LEVEL_DATA, LEARNING_GOALS } from "../data/levels/index.js";
+import { LEVEL_SOURCES } from "../data/levelSources.js";
 import { SpeechBubble, Avatar } from "../components/ui/index.jsx";
 import { SceneCompany } from "../components/scenes/SceneCompany.jsx";
 import { ScenePersona } from "../components/scenes/ScenePersona.jsx";
@@ -14,7 +14,8 @@ function LogoPlaceholder() {
   return <img src="logo.png" alt="NEXUS Corp" height="32" style={{ display:"block" }} />;
 }
 
-export function LevelPlayer({ levelNr, isLastLevel, onBack, onComplete, streakActive, currentStreak, onAnswer }) {
+export function LevelPlayer({ moduleId, levelNr, isLastLevel, onBack, onComplete, streakActive, currentStreak, onAnswer }) {
+  const { data: LEVEL_DATA, goals: LEARNING_GOALS } = LEVEL_SOURCES[moduleId];
   const data = LEVEL_DATA[levelNr];
   const [phase, setPhase] = useState("intro");
   const [idx, setIdx] = useState(0);
@@ -29,7 +30,7 @@ export function LevelPlayer({ levelNr, isLastLevel, onBack, onComplete, streakAc
     else if (phase === "complete") setPhase("scene");
   };
 
-  const levelTitle = MODULES[0].levels.find(l => l.id === levelNr)?.title || `Level ${levelNr}`;
+  const levelTitle = MODULES.find(m => m.id === moduleId)?.levels.find(l => l.id === levelNr)?.title || `Level ${levelNr}`;
 
   return (
     <div style={{ minHeight:"100vh", background:C.bg }}>
@@ -42,7 +43,12 @@ export function LevelPlayer({ levelNr, isLastLevel, onBack, onComplete, streakAc
           <div style={{ color:C.textLight, fontSize:10, textTransform:"uppercase", letterSpacing:"2px" }}>Level {levelNr}</div>
           <div style={{ color:C.text, fontSize:17, fontWeight:700 }}>
             {levelTitle.includes("NEXUS Corp")
-              ? <>{levelTitle.replace("NEXUS Corp", "")}<span>NEXUS <span style={{ color:C.accent }}>Corp</span></span></>
+              ? (() => {
+                  const idx = levelTitle.indexOf("NEXUS Corp");
+                  const before = levelTitle.slice(0, idx);
+                  const after = levelTitle.slice(idx + "NEXUS Corp".length);
+                  return <>{before}<span>NEXUS <span style={{ color:C.accent }}>Corp</span></span>{after}</>;
+                })()
               : levelTitle}
           </div>
         </div>
@@ -76,8 +82,8 @@ export function LevelPlayer({ levelNr, isLastLevel, onBack, onComplete, streakAc
 
         {phase === "scene" && scene && (
           <>
-            {scene.type === "company" && <SceneCompany key={scene.id} scene={scene} onNext={next}/>}
-            {scene.type === "persona" && <ScenePersona key={scene.id} scene={scene} onNext={next} onAnswer={onAnswer}/>}
+            {scene.type === "company" && <SceneCompany key={scene.id} scene={scene} onNext={next} onAnswer={onAnswer}/>}
+            {scene.type === "persona" && <ScenePersona key={scene.id} scene={scene} onNext={next} onAnswer={onAnswer} moduleId={moduleId}/>}
             {scene.type === "reflection" && <SceneReflection key={scene.id} scene={scene} onNext={next} onAnswer={onAnswer}/>}
             {scene.type === "definition" && <SceneDefinition key={scene.id} scene={scene} onNext={next} onAnswer={onAnswer}/>}
             {scene.type === "matching" && <SceneMatching key={scene.id} scene={scene} onNext={next} onAnswer={onAnswer}/>}
@@ -89,7 +95,7 @@ export function LevelPlayer({ levelNr, isLastLevel, onBack, onComplete, streakAc
             <div style={{ fontSize:56, marginBottom:12 }}>🎉</div>
             <h2 style={{ color:C.text, fontSize:26, fontWeight:900, marginBottom:24 }}>Level abgeschlossen!</h2>
             <div style={{ padding:"14px 18px", borderRadius:14, background:C.bgWarm, border:`1px solid ${C.border}`, display:"flex", gap:12, alignItems:"flex-start", maxWidth:420, margin:"0 auto 28px", textAlign:"left", width:"100%" }}>
-              <Avatar charKey={data.outro.charKey} size="sm" />
+              <Avatar charKey={data.outro.charKey} size="sm" moduleId={moduleId} />
               <p style={{ color:C.textMid, fontSize:13, fontStyle:"italic", margin:0 }}>„{data.outro.message}"</p>
             </div>
             {isLastLevel ? (
@@ -108,6 +114,7 @@ export function LevelPlayer({ levelNr, isLastLevel, onBack, onComplete, streakAc
   );
 }
 LevelPlayer.propTypes = {
+  moduleId: PropTypes.string.isRequired,
   levelNr: PropTypes.number.isRequired,
   isLastLevel: PropTypes.bool.isRequired,
   onBack: PropTypes.func.isRequired,

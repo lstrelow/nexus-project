@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import { C, shadow, shadowLg } from "../theme.js";
 import { Avatar } from "../components/ui/index.jsx";
+import { isComplete } from "../data/progress.js";
 
 function LogoPlaceholder() {
   return <img src="logo.png" alt="NEXUS Corp" height="32" style={{ display:"block" }} />;
@@ -26,10 +27,10 @@ export function LevelMap({ module, onSelectLevel, onBack, completed, maxPlayable
         </div>
 
         <div style={{ padding:"18px 16px", borderRadius:16, background:C.accent+"0d", border:`1px solid ${C.accent}33`, marginBottom:24, display:"flex", gap:14, alignItems:"flex-start" }}>
-          <Avatar charKey="maya" size="md" active />
+          <Avatar charKey="maya" size="md" active moduleId={module.id} />
           <div>
             <div style={{ fontSize:10, fontWeight:700, color:C.accent, textTransform:"uppercase", letterSpacing:"2px", marginBottom:6 }}>Die Ausgangslage</div>
-            <p style={{ color:C.text, fontSize:13, lineHeight:1.7, margin:0 }}>NEXUS Corp hat 120 Mitarbeitende, drei Lagerstandorte und massive Wachstumsschmerzen. Manuell geführte Excel-Tabellen versagen. Ihre Mission über 9 Level: Helfen Sie dabei, die ersten Unternehmenssysteme einzuführen. Dabei ist es zentral, dass Sie das Team mitnehmen, da Technologie allein nie ausreicht.</p>
+            <p style={{ color:C.text, fontSize:13, lineHeight:1.7, margin:0 }}>{module.intro}</p>
           </div>
         </div>
 
@@ -37,7 +38,7 @@ export function LevelMap({ module, onSelectLevel, onBack, completed, maxPlayable
           <div style={{ position:"absolute", left:19, top:0, bottom:0, width:1, background:C.border }}/>
           <div style={{ display:"flex", flexDirection:"column", gap:8 }}>
             {module.levels.map(level => {
-              const done = completed.has(level.id);
+              const done = isComplete(completed, module.id, level.id);
               const free = level.id <= maxPlayable;
               return (
                 <button key={level.id} onClick={() => onSelectLevel(level)} disabled={!free}

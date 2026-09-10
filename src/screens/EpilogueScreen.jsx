@@ -1,30 +1,15 @@
 import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { C } from "../theme.js";
-
-const CHARS = {
-  maya: { emoji:"👩‍💼", name:"Maya Chen", role:"CEO & Gründerin", color:"#ed6e45" },
-  tom: { emoji:"👨‍🔧", name:"Tom Becker", role:"Leiter Betrieb & Logistik", color:"#8e7a65" },
-  carlos: { emoji:"👨‍💻", name:"Carlos Ruiz", role:"Vertriebsleiter", color:"#2563EB" },
-  lena: { emoji:"👩‍🔬", name:"Lena Fischer", role:"BI-Analystin", color:"#065F46" },
-  priya: { emoji:"👩‍💻", name:"Priya Nair", role:"IT-Architektin", color:"#7C3AED" },
-};
-
-const CHARS_LIST = Object.entries(CHARS).map(([key, v]) => ({ key, ...v }));
-
-const MAYA_SPEECH = [
-  "Vor einem Jahr wusste ich nicht mehr weiter. Wachstum auf allen Seiten — und unsere Systeme brachen unter der Last zusammen.",
-  "Mein Team war erschöpft. Wir haben gekämpft, improvisiert, und trotzdem verloren wir täglich den Überblick. Ich hatte Angst, dass NEXUS Corp an sich selbst scheitert.",
-  "Dann kamen Sie. Als externes Beratungsteam haben Sie uns nicht einfach Lösungen verkauft — Sie haben uns geholfen, unsere eigenen Herausforderungen wirklich zu verstehen.",
-  "Dank Ihnen haben wir heute ein tiefes Verständnis davon, was Enterprise Systems leisten können, wie Prozesse gestaltet werden müssen — und warum der Mensch dabei immer im Mittelpunkt steht.",
-  "Im Namen des gesamten NEXUS-Teams: Danke!",
-];
+import { resolveCharacter } from "../data/characters.js";
 
 function LogoPlaceholder() {
   return <img src="logo.png" alt="NEXUS Corp" height="32" style={{ display:"block" }} />;
 }
 
-function AnimatedScene({ onDone }) {
+function AnimatedScene({ onDone, chars, speaker, speechLines, moduleId }) {
+  const charsList = chars.map(key => ({ key, ...resolveCharacter(key, moduleId) }));
+  const speakerChar = resolveCharacter(speaker, moduleId);
   const [step, setStep] = useState(0);
   const [speechIdx, setSpeechIdx] = useState(0);
   const [slideDir, setSlideDir] = useState("in");
@@ -41,7 +26,7 @@ function AnimatedScene({ onDone }) {
   }, []);
 
   useEffect(() => {
-    if (step < CHARS_LIST.length) {
+    if (step < charsList.length) {
       const t = setTimeout(() => { setVisible(v => [...v, step]); setStep(s => s+1); }, step === 0 ? 400 : 250);
       return () => clearTimeout(t);
     }
@@ -53,7 +38,7 @@ function AnimatedScene({ onDone }) {
   };
 
   const handleNext = () => {
-    if (speechIdx < MAYA_SPEECH.length - 1) goTo(speechIdx + 1);
+    if (speechIdx < speechLines.length - 1) goTo(speechIdx + 1);
     else onDone();
   };
 
@@ -77,33 +62,33 @@ function AnimatedScene({ onDone }) {
       </div>
 
       <div style={{ display:"flex", gap:16, marginBottom:40, flexWrap:"wrap", justifyContent:"center" }}>
-        {CHARS_LIST.map((ch, i) => (
+        {charsList.map((ch, i) => (
           <div key={ch.key} style={{ display:"flex", flexDirection:"column", alignItems:"center", gap:6, opacity:visible.includes(i)?1:0, animation:visible.includes(i)?"popIn 0.5s ease-out forwards":"none" }}>
-            <div style={{ width:64, height:64, borderRadius:"50%", background:ch.color+"33", border:`3px solid ${ch.color}`, display:"flex", alignItems:"center", justifyContent:"center", fontSize:30, animation:ch.key==="maya"&&visible.includes(i)?"pulse 2s ease-in-out infinite":"none" }}>{ch.emoji}</div>
+            <div style={{ width:64, height:64, borderRadius:"50%", background:ch.color+"33", border:`3px solid ${ch.color}`, display:"flex", alignItems:"center", justifyContent:"center", fontSize:30, animation:ch.key===speaker&&visible.includes(i)?"pulse 2s ease-in-out infinite":"none" }}>{ch.emoji}</div>
             <span style={{ color:"rgba(255,255,255,0.75)", fontSize:11, fontWeight:600 }}>{ch.name}</span>
           </div>
         ))}
       </div>
 
-      {step >= CHARS_LIST.length && (
+      {step >= charsList.length && (
         <div style={{ maxWidth:480, width:"100%" }}>
           <div key={speechIdx}
-            style={{ background:"rgba(237,110,69,0.12)", border:"1px solid rgba(237,110,69,0.35)", borderRadius:20, padding:"20px 24px", marginBottom:16, animation:`${slideDir === "in" ? "slideInLeft" : "slideOutLeft"} 0.3s ease-out forwards` }}>
+            style={{ background:`${speakerChar.color}1f`, border:`1px solid ${speakerChar.color}59`, borderRadius:20, padding:"20px 24px", marginBottom:16, animation:`${slideDir === "in" ? "slideInLeft" : "slideOutLeft"} 0.3s ease-out forwards` }}>
             <div style={{ display:"flex", alignItems:"center", gap:10, marginBottom:12 }}>
-              <div style={{ width:32, height:32, borderRadius:"50%", background:"#ed6e45", display:"flex", alignItems:"center", justifyContent:"center", fontSize:16 }}>👩‍💼</div>
-              <span style={{ color:"#ed6e45", fontWeight:700, fontSize:13 }}>Maya – CEO, NEXUS Corp</span>
+              <div style={{ width:32, height:32, borderRadius:"50%", background:speakerChar.color, display:"flex", alignItems:"center", justifyContent:"center", fontSize:16 }}>{speakerChar.emoji}</div>
+              <span style={{ color:speakerChar.color, fontWeight:700, fontSize:13 }}>{speakerChar.name} – {speakerChar.role}, NEXUS Corp</span>
             </div>
-            <p style={{ color:"#fff", fontSize:17, lineHeight:1.65, margin:0, fontWeight:500 }}>{MAYA_SPEECH[speechIdx]}</p>
+            <p style={{ color:"#fff", fontSize:17, lineHeight:1.65, margin:0, fontWeight:500 }}>{speechLines[speechIdx]}</p>
           </div>
           <div style={{ display:"flex", gap:8, justifyContent:"center", marginBottom:16 }}>
-            {MAYA_SPEECH.map((speech, i) => (
+            {speechLines.map((speech, i) => (
               <button key={speech} onClick={() => goTo(i)} aria-label={`Folie ${i+1}`}
-                style={{ width:9, height:9, borderRadius:"50%", background:i===speechIdx?"#ed6e45":"rgba(255,255,255,0.25)", transition:"background 0.3s", cursor:"pointer", border:"none", padding:0 }} />
+                style={{ width:9, height:9, borderRadius:"50%", background:i===speechIdx?speakerChar.color:"rgba(255,255,255,0.25)", transition:"background 0.3s", cursor:"pointer", border:"none", padding:0 }} />
             ))}
           </div>
           <button onClick={handleNext}
-            style={{ width:"100%", padding:"15px", borderRadius:14, background:"#ed6e45", color:"#fff", fontSize:15, fontWeight:800, border:"none", cursor:"pointer", fontFamily:"inherit", boxShadow:"0 4px 24px rgba(237,110,69,0.5)" }}>
-            {speechIdx < MAYA_SPEECH.length - 1 ? "Weiter →" : "Zum Abschluss →"}
+            style={{ width:"100%", padding:"15px", borderRadius:14, background:speakerChar.color, color:"#fff", fontSize:15, fontWeight:800, border:"none", cursor:"pointer", fontFamily:"inherit", boxShadow:`0 4px 24px ${speakerChar.color}80` }}>
+            {speechIdx < speechLines.length - 1 ? "Weiter →" : "Zum Abschluss →"}
           </button>
         </div>
       )}
@@ -112,6 +97,10 @@ function AnimatedScene({ onDone }) {
 }
 AnimatedScene.propTypes = {
   onDone: PropTypes.func.isRequired,
+  chars: PropTypes.arrayOf(PropTypes.string).isRequired,
+  speaker: PropTypes.string.isRequired,
+  speechLines: PropTypes.arrayOf(PropTypes.string).isRequired,
+  moduleId: PropTypes.string,
 };
 
 function FireworkCanvas() {
@@ -161,7 +150,7 @@ function FireworkCanvas() {
   return <canvas id="firework-canvas" style={{ position:"fixed", top:0, left:0, pointerEvents:"none", zIndex:100 }} />;
 }
 
-export function EpilogueScreen({ epilogue, moduleTitle, onBack }) {
+export function EpilogueScreen({ epilogue, animation, moduleId, moduleTitle, onBack }) {
   const [phase, setPhase] = useState("animation");
   const [idx, setIdx] = useState(0);
   const [slideDir, setSlideDir] = useState("in");
@@ -182,10 +171,12 @@ export function EpilogueScreen({ epilogue, moduleTitle, onBack }) {
     else setIdx(epilogue.scenes.length);
   };
 
-  if (phase === "animation") return <AnimatedScene onDone={() => setPhase("story")} />;
+  if (phase === "animation") {
+    return <AnimatedScene onDone={() => setPhase("story")} chars={animation.chars} speaker={animation.speaker} speechLines={animation.speechLines} moduleId={moduleId} />;
+  }
 
   const currentScene = done ? null : epilogue.scenes[idx];
-  const char = currentScene ? CHARS[currentScene.charKey] : null;
+  const char = currentScene ? resolveCharacter(currentScene.charKey, moduleId) : null;
 
   return (
     <div style={{ minHeight:"100vh", background:C.bgWarm }}>
@@ -271,6 +262,12 @@ EpilogueScreen.propTypes = {
     scenes: PropTypes.array,
     closing: PropTypes.string,
   }).isRequired,
+  animation: PropTypes.shape({
+    chars: PropTypes.arrayOf(PropTypes.string).isRequired,
+    speaker: PropTypes.string.isRequired,
+    speechLines: PropTypes.arrayOf(PropTypes.string).isRequired,
+  }).isRequired,
+  moduleId: PropTypes.string.isRequired,
   moduleTitle: PropTypes.string.isRequired,
   onBack: PropTypes.func.isRequired,
 };

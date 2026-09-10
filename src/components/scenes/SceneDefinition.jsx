@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { C } from "../../theme.js";
-import { SpeechBubble, AnswerBtn, Feedback, NextBtn } from "../ui/index.jsx";
+import { SpeechBubble, NextBtn } from "../ui/index.jsx";
+import { AnswerQuestion } from "./AnswerQuestion.jsx";
 
 function PyramidViz({ aspects }) {
   const [hovered, setHovered] = React.useState(null);
@@ -77,16 +78,7 @@ PyramidViz.propTypes = {
 
 export function SceneDefinition({ scene, onNext, onAnswer }) {
   const [phase, setPhase] = useState("def");
-  const [chosen, setChosen] = useState(null);
-  const [checked, setChecked] = useState(false);
   const d = scene.definition;
-
-  const handleCheck = () => {
-    if (chosen !== null) {
-      setChecked(true);
-      onAnswer?.(scene.answers[chosen].correct);
-    }
-  };
 
   return (
     <div>
@@ -119,22 +111,7 @@ export function SceneDefinition({ scene, onNext, onAnswer }) {
             <span style={{ fontSize:10, fontWeight:700, color:C.textLight, textTransform:"uppercase", letterSpacing:"1px" }}>Begriff: </span>
             <span style={{ fontSize:13, fontWeight:700, color:C.accent }}>{d.term}</span>
           </div>
-          <p style={{ color:C.textMid, fontSize:14, fontWeight:600, marginBottom:10 }}>{scene.question}</p>
-          {scene.answers.map((a,i) => {
-            let st = "normal";
-            if (checked) {
-              if (i === chosen) { st = a.correct ? "correct" : "wrong"; }
-              else { st = "inactive"; }
-            } else if (chosen === i) { st = "selected"; }
-            return <AnswerBtn key={a.text} letter={String.fromCodePoint(65+i)} text={a.text} state={st} onClick={() => { if (!checked) setChosen(i); }} />;
-          })}
-          {checked
-            ? <><Feedback text={scene.answers[chosen].feedback} correct={scene.answers[chosen].correct}/><NextBtn onClick={onNext}/></>
-            : <button onClick={handleCheck} disabled={chosen === null}
-                style={{ width:"100%", padding:"14px", borderRadius:13, background:chosen===null?C.bgDeep:C.accent, color:chosen===null?C.textLight:"#fff", fontSize:14, fontWeight:700, border:"none", cursor:chosen===null?"default":"pointer", fontFamily:"inherit", marginTop:4, transition:"all 0.2s" }}>
-                Antwort prüfen
-              </button>
-          }
+          <AnswerQuestion question={scene.question} answers={scene.answers} onNext={onNext} onAnswer={onAnswer} />
         </>
       )}
     </div>

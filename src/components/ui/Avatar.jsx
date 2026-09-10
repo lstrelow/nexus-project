@@ -1,9 +1,9 @@
 import PropTypes from "prop-types";
 import { C } from "../../theme.js";
-import { CHARACTERS } from "../../data/characters.js";
+import { resolveCharacter } from "../../data/characters.js";
 
-export function Avatar({ charKey, size = "md", active = false }) {
-  const c = CHARACTERS[charKey];
+export function Avatar({ charKey, size = "md", active = false, moduleId }) {
+  const c = resolveCharacter(charKey, moduleId);
   const dim = size === "lg" ? 60 : size === "sm" ? 30 : 44;
   const fs = size === "lg" ? 28 : size === "sm" ? 14 : 20;
   return (
@@ -24,4 +24,5 @@ Avatar.propTypes = {
   charKey: PropTypes.string.isRequired,
   size: PropTypes.oneOf(["sm", "md", "lg"]),
   active: PropTypes.bool,
+  moduleId: PropTypes.string,
 };

@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { MAX_PLAYABLE_LEVEL } from "./data/modules.js";
-import { EPILOGUE_M1 } from "./data/epilogue.js";
+import { EPILOGUE_SOURCES } from "./data/epilogue.js";
+import { markComplete, countComplete } from "./data/progress.js";
 import { TitleScreen } from "./screens/TitleScreen.jsx";
 import { ModuleSelect } from "./screens/ModuleSelect.jsx";
 import { LevelMap } from "./screens/LevelMap.jsx";
@@ -39,12 +40,13 @@ export default function App() {
   };
 
   const completeLevel = (levelId, goToEpilogue) => {
-    setCompleted(prev => new Set([...prev, levelId]));
+    setCompleted(prev => markComplete(prev, module.id, levelId));
     if (goToEpilogue) setScreen("epilogue");
     else setScreen("levelmap");
   };
 
-  const allDone = completed.size >= TOTAL_LEVELS;
+  const moduleCompletedCount = useMemo(() => module ? countComplete(completed, module.id) : 0, [completed, module]);
+  const allDone = moduleCompletedCount >= TOTAL_LEVELS;
 
   return (
     <div style={{ fontFamily:"'Segoe UI',system-ui,sans-serif" }}>
@@ -68,6 +70,7 @@ export default function App() {
       )}
       {screen === "levelplayer" && level && (
         <LevelPlayer
+          moduleId={module.id}
           levelNr={level.id}
           isLastLevel={level.id === TOTAL_LEVELS}
           onBack={() => setScreen("levelmap")}
@@ -79,7 +82,9 @@ export default function App() {
       )}
       {screen === "epilogue" && module && (
         <EpilogueScreen
-          epilogue={EPILOGUE_M1}
+          epilogue={EPILOGUE_SOURCES[module.id].epilogue}
+          animation={EPILOGUE_SOURCES[module.id].animation}
+          moduleId={module.id}
           moduleTitle={module.title}
           onBack={() => setScreen("levelmap")}
         />
