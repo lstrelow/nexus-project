@@ -28,7 +28,7 @@ export const ANIMATION_M2 = {
   chars: ["maya", "tom", "carlos", "lena", "priya", "sophie"],
   speechLines: [
     "Fünf Jahre nach unserer ersten Transformation dachte ich, die größte Herausforderung läge hinter mir.",
-    "Dann kamen drei Übernahmen, und mit ihnen 47 Systeme, drei ERP-Instanzen und vier Landesgesellschaften, die jeweils überzeugt waren, ihr System sei das richtige.",
+    "Dann kamen drei Übernahmen und mit ihnen 47 Systeme, drei ERP-Instanzen und vier Landesgesellschaften, die jeweils überzeugt waren, ihr System sei das richtige.",
     "Sie haben uns geholfen, diese Komplexität nicht nur zu verstehen, sondern strukturiert anzugehen, von kritischen Erfolgsfaktoren über Enterprise Architecture bis zum sicheren Softwaretransport.",
     "Die eigentliche S/4HANA-Konsolidierung liegt noch vor uns und dauert zwei Jahre, vielleicht mehr. Aber zum ersten Mal haben wir einen Plan statt nur eine Ahnung.",
     "Im Namen des gesamten Konzerns: Danke, dass Sie uns auf den Weg dorthin gebracht haben.",
