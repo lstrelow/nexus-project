@@ -137,7 +137,7 @@ export const ML1 = {
           { icon: "🏗️", title: "Vom Applikations- zum Architektur- management", text: "Einzelne Systeme zu verwalten reicht nicht mehr. Die Gesamtarchitektur muss aktiv gestaltet werden" },
           { icon: "☁️", title: "Technologische Herausforderungen", text: "Cloud Computing verändert grundlegend, wie Systemlandschaften betrieben und integriert werden" },
           { icon: "🔗", title: "Organisation und Applikation", text: "Die Interdependenzen zwischen Unternehmensstruktur und IT-Architektur müssen aktiv gestaltet werden" },
-          { icon: "📈", title: "Zukunftsrelevanz", text: "Konzeption, Entwicklung und Transformation von Applikationsarchitekturen gewinnen in der Praxis weiter an Bedeutung" },
+          { icon: "📈", title: "Zukunftsrelevanz", text: "Konzeption, Entwicklung und Transformation von Applikations- architekturen gewinnen in der Praxis weiter an Bedeutung" },
         ],
         nexusContext: "NEXUS Corp mit seinen 47 Systemen über vier Landesgesellschaften ist ein Lehrbuchbeispiel für ein Large Enterprise System und genau für die Herausforderungen, die in den kommenden Wochen im Zentrum stehen werden.",
       },
