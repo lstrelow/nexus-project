@@ -20,8 +20,8 @@ export const ML8 = {
       },
       question: "Worin unterscheidet sich Verifikation von Validierung konkret?",
       answers: [
-        { text: "Verifikation prüft, ob die Umsetzung den Anforderungen entspricht. Validierung prüft, ob diese Anforderungen tatsächlich die realen Geschäftsprozesse richtig unterstützen. Beide Fragen können unterschiedlich beantwortet werden.", correct: true, feedback: "Genau. Ein System kann technisch korrekt gegen die dokumentierten Anforderungen verifiziert sein und trotzdem die eigentlichen Geschäftsprozesse nicht angemessen unterstützen, wenn die Anforderungen selbst unvollständig oder falsch waren." },
         { text: "Verifikation und Validierung sind synonyme Begriffe für denselben Testvorgang, die in der Praxis austauschbar verwendet werden, um denselben Qualitätssicherungsschritt zu beschreiben.", correct: false, feedback: "Beide Begriffe bezeichnen unterschiedliche, sich ergänzende Testziele. Sie sind nicht austauschbar." },
+        { text: "Verifikation prüft, ob die Umsetzung den Anforderungen entspricht. Validierung prüft, ob diese Anforderungen tatsächlich die realen Geschäftsprozesse richtig unterstützen. Beide Fragen können unterschiedlich beantwortet werden.", correct: true, feedback: "Genau. Ein System kann technisch korrekt gegen die dokumentierten Anforderungen verifiziert sein und trotzdem die eigentlichen Geschäftsprozesse nicht angemessen unterstützen, wenn die Anforderungen selbst unvollständig oder falsch waren." },
         { text: "Verifikation wird nur von Entwicklern durchgeführt, Validierung nur von externen Prüfern.", correct: false, feedback: "Die Unterscheidung liegt im Testziel (Anforderungskonformität vs. Prozessunterstützung), nicht in der ausführenden Person oder Rolle." },
       ],
     },
@@ -41,9 +41,9 @@ export const ML8 = {
       },
       question: "Warum wird Shift-Left als wirtschaftlich sinnvoll beschrieben, obwohl frühe Qualitätsmaßnahmen zusätzlichen initialen Aufwand bedeuten?",
       answers: [
-        { text: "Weil der zusätzliche frühe Aufwand um ein Vielfaches geringer ist als die exponentiell steigenden Kosten der Fehlerbehebung in späteren Phasen. Die frühe Investition zahlt sich dadurch aus.", correct: true, feedback: "Genau. Der 10x- bzw. 640x-Kostenfaktor zeigt: Selbst ein deutlich höherer initialer Testaufwand ist wirtschaftlich vorteilhaft, wenn er verhindert, dass Fehler erst spät und damit deutlich teurer entdeckt werden." },
         { text: "Weil frühe Tests grundsätzlich kostenlos sind und keinen zusätzlichen Aufwand verursachen.", correct: false, feedback: "Frühe Tests verursachen durchaus Aufwand. Der Punkt ist, dass dieser Aufwand im Vergleich zu späten Fehlerkorrekturen deutlich geringer ausfällt." },
         { text: "Weil Shift-Left nur bei sehr kleinen Softwareprojekten wirtschaftlich sinnvoll ist, da sich der zusätzliche Testaufwand bei großen Projekten nicht mehr refinanzieren lässt.", correct: false, feedback: "Das Prinzip gilt gerade bei großen, komplexen Projekten wie der NEXUS-Konsolidierung besonders stark, da die Fehlerkosten dort besonders hoch ausfallen können." },
+        { text: "Weil der zusätzliche frühe Aufwand um ein Vielfaches geringer ist als die exponentiell steigenden Kosten der Fehlerbehebung in späteren Phasen. Die frühe Investition zahlt sich dadurch aus.", correct: true, feedback: "Genau. Der 10x- bzw. 640x-Kostenfaktor zeigt: Selbst ein deutlich höherer initialer Testaufwand ist wirtschaftlich vorteilhaft, wenn er verhindert, dass Fehler erst spät und damit deutlich teurer entdeckt werden." },
       ],
     },
     {
@@ -62,9 +62,9 @@ export const ML8 = {
       },
       question: "Warum reicht ein bestandener Integrationstest allein nicht aus, um ein System für den produktiven Einsatz freizugeben?",
       answers: [
-        { text: "Weil Integrationstests nur einen Teil oder das Zusammenspiel weniger Module prüfen. Ein umfassender Systemtest und die fachliche Abnahme durch den UAT sind zusätzlich notwendig, um die End-to-End-Prozessfähigkeit und tatsächliche Praxistauglichkeit sicherzustellen.", correct: true, feedback: "Exakt. Integrationstests sind ein wichtiger, aber nicht hinreichender Baustein. Erst Systemtest und UAT zusammen liefern den vollständigen Nachweis der Produktionsreife." },
         { text: "Weil Integrationstests grundsätzlich unzuverlässiger sind als Modultests, da sie auf dem Zusammenspiel mehrerer fehleranfälliger Komponenten gleichzeitig beruhen und dadurch inhärent fragiler sind.", correct: false, feedback: "Integrationstests sind nicht unzuverlässiger. Sie prüfen einfach eine andere, notwendige aber nicht ausreichende Dimension der Systemqualität." },
         { text: "Weil nach Integrationstests immer automatisch ein Fehler gefunden werden muss, da statistisch gesehen jeder Testdurchlauf mindestens eine Unregelmäßigkeit aufdecken sollte, egal wie ausgereift die getestete Komponente ist.", correct: false, feedback: "Es geht nicht darum, zwangsläufig weitere Fehler zu finden, sondern darum, zusätzliche Qualitätsdimensionen (Gesamtsystem, fachliche Praxistauglichkeit) abzudecken." },
+        { text: "Weil Integrationstests nur einen Teil oder das Zusammenspiel weniger Module prüfen. Ein umfassender Systemtest und die fachliche Abnahme durch den UAT sind zusätzlich notwendig, um die End-to-End-Prozessfähigkeit und tatsächliche Praxistauglichkeit sicherzustellen.", correct: true, feedback: "Exakt. Integrationstests sind ein wichtiger, aber nicht hinreichender Baustein. Erst Systemtest und UAT zusammen liefern den vollständigen Nachweis der Produktionsreife." },
       ],
     },
     {
@@ -83,8 +83,8 @@ export const ML8 = {
       },
       question: "Warum ist ein Migrationstest bei der NEXUS-Konsolidierung von besonderer Bedeutung, anders als bei einer erstmaligen ES-Einführung ohne Altsystem?",
       answers: [
-        { text: "Weil bei der Konsolidierung große Mengen realer Bestandsdaten aus vier unterschiedlichen Altsystemen korrekt übernommen werden müssen. Fehler hier haben direkte, oft schwer rückgängig zu machende Konsequenzen für den laufenden Geschäftsbetrieb.", correct: true, feedback: "Genau. Bei einer Konsolidierung mit Altdaten ist der Migrationstest kritischer als bei einer Neueinführung ohne Bestandsdaten. Falsch migrierte Kunden-, Preis- oder Bestandsdaten wirken sich unmittelbar auf das operative Geschäft aus." },
         { text: "Weil Migrationstests grundsätzlich einfacher durchzuführen sind als andere Testarten, da lediglich geprüft werden muss, ob Datensätze vollständig kopiert wurden.", correct: false, feedback: "Migrationstests sind eher komplexer, nicht einfacher, gerade wenn mehrere heterogene Altsysteme wie bei NEXUS Corp konsolidiert werden." },
+        { text: "Weil bei der Konsolidierung große Mengen realer Bestandsdaten aus vier unterschiedlichen Altsystemen korrekt übernommen werden müssen. Fehler hier haben direkte, oft schwer rückgängig zu machende Konsequenzen für den laufenden Geschäftsbetrieb.", correct: true, feedback: "Genau. Bei einer Konsolidierung mit Altdaten ist der Migrationstest kritischer als bei einer Neueinführung ohne Bestandsdaten. Falsch migrierte Kunden-, Preis- oder Bestandsdaten wirken sich unmittelbar auf das operative Geschäft aus." },
         { text: "Weil Migrationstests nur bei Cloud-basierten Systemen relevant sind, da On-Premise-Systeme ihre Daten grundsätzlich unverändert am selben physischen Speicherort behalten und daher nie migriert werden müssen.", correct: false, feedback: "Migrationstests sind unabhängig von Cloud oder On-Premise relevant. Sie betreffen die Datenübernahme, nicht die Bereitstellungsform." },
       ],
     },
@@ -106,8 +106,8 @@ export const ML8 = {
       question: "Was ist laut der Vorlage der eigentliche 'Kern des Testmanagements'?",
       answers: [
         { text: "Möglichst viele automatisierte Tests durchzuführen, unabhängig vom Testziel, da eine hohe Testabdeckung allein bereits als Nachweis für Softwarequalität gilt.", correct: false, feedback: "Die reine Anzahl an Tests ist nicht das Ziel. Testautomatisierung ist ein Werkzeug, kein Selbstzweck." },
-        { text: "Zu verstehen, ob das Testergebnis tatsächlich richtig ist: also die Ergebnisse korrekt zu interpretieren, nicht nur Tests mechanisch auszuführen.", correct: true, feedback: "Richtig, das ist die zentrale Aussage aus der Vorlage: 'Der Kern des Testmanagements besteht in dem Verstehen, ob das Ergebnis richtig ist.' Das erfordert fachliches Verständnis, nicht nur technische Testausführung." },
         { text: "Ausschließlich manuelle Tests durchzuführen, da automatisierte Tests unzuverlässig sind.", correct: false, feedback: "Der Testprozess besteht laut Vorlage explizit 'meist aus einer Mischung manueller und automatischer Tests', nicht aus einer Ablehnung der Automatisierung." },
+        { text: "Zu verstehen, ob das Testergebnis tatsächlich richtig ist: also die Ergebnisse korrekt zu interpretieren, nicht nur Tests mechanisch auszuführen.", correct: true, feedback: "Richtig, das ist die zentrale Aussage aus der Vorlage: 'Der Kern des Testmanagements besteht in dem Verstehen, ob das Ergebnis richtig ist.' Das erfordert fachliches Verständnis, nicht nur technische Testausführung." },
       ],
     },
   ],

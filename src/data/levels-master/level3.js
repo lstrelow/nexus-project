@@ -42,8 +42,8 @@ export const ML3 = {
       },
       question: "Warum ist die Unterscheidung zwischen i.w.S. und i.e.S. für die anstehende S/4HANA-Konsolidierung bei NEXUS Corp relevant?",
       answers: [
-        { text: "Weil nur Systeme i.e.S. überhaupt migriert werden können: Heterogene Landschaften i.w.S. müssen komplett neu aufgebaut werden.", correct: false, feedback: "Auch heterogene Landschaften i.w.S. können konsolidiert werden. Die Unterscheidung betrifft den Ausgangszustand, nicht die technische Machbarkeit einer Migration." },
         { text: "Weil sie zeigt, dass die vier Landesgesellschaften unterschiedliche Ausgangspunkte haben: NEXUS Deutschland ist bereits konsolidiert, die anderen drei sind heterogen und benötigen unterschiedliche Migrationsstrategien.", correct: true, feedback: "Genau. Diese Unterscheidung liefert eine wichtige Diagnose für die Zielarchitektur: Ein Unternehmen, das bereits i.e.S. organisiert ist, benötigt eine andere Migrationsstrategie als heterogene i.w.S.-Landschaften." },
+        { text: "Weil nur Systeme i.e.S. überhaupt migriert werden können: Heterogene Landschaften i.w.S. müssen komplett neu aufgebaut werden.", correct: false, feedback: "Auch heterogene Landschaften i.w.S. können konsolidiert werden. Die Unterscheidung betrifft den Ausgangszustand, nicht die technische Machbarkeit einer Migration." },
         { text: "Weil i.w.S.-Systeme grundsätzlich günstiger zu betreiben sind als i.e.S.-Systeme, da sie ohne teure Lizenzgebühren eines dominierenden Standardsoftware-Herstellers auskommen.", correct: false, feedback: "Die Unterscheidung sagt nichts über Betriebskosten aus. Heterogene Landschaften sind in der Praxis eher teurer im Betrieb, nicht günstiger." },
       ],
     },
@@ -87,9 +87,9 @@ export const ML3 = {
       },
       question: "Was ist die technische Kernanforderung, die Unternehmen typischerweise an ein modernes ERP-System wie SAP S/4HANA stellen?",
       answers: [
-        { text: "Eine modulare Architektur mit integrierten Bereichen (Finanzen, HR, Logistik), die auf einer zentralen Datenbank basiert.", correct: true, feedback: "Ausgezeichnet. Diese Kombination aus Modularität (klare fachliche Trennung) und Integration (gemeinsame Datenbasis) ist der Kern moderner ERP-Architekturen, und genau das fehlt NEXUS Corp aktuell konzernweit." },
         { text: "Möglichst viele voneinander unabhängige Einzeldatenbanken für maximale Ausfallsicherheit.", correct: false, feedback: "Das widerspricht dem Integrationsgedanken von ERP-Systemen fundamental. Unabhängige Datenbanken erzeugen genau die Fragmentierung, die NEXUS Corp aktuell zu schaffen macht." },
         { text: "Eine vollständige Individualentwicklung ohne Rückgriff auf Standardmodule.", correct: false, feedback: "Moderne ERP-Systeme setzen gerade auf Standardmodule mit gezielter Konfiguration. Vollständige Individualentwicklung wäre unwirtschaftlich und wartungsintensiv." },
+        { text: "Eine modulare Architektur mit integrierten Bereichen (Finanzen, HR, Logistik), die auf einer zentralen Datenbank basiert.", correct: true, feedback: "Ausgezeichnet. Diese Kombination aus Modularität (klare fachliche Trennung) und Integration (gemeinsame Datenbasis) ist der Kern moderner ERP-Architekturen, und genau das fehlt NEXUS Corp aktuell konzernweit." },
       ],
     },
     {

@@ -41,9 +41,9 @@ export const ML7 = {
       },
       question: "Warum wird betont, dass die Rückkopplung von Betrieb zu Entwicklung gerade nach der Ersteinführung, über Releases hinweg, so wichtig wird?",
       answers: [
-        { text: "Weil vor der Ersteinführung noch keine Betriebserfahrungen existieren, die zurückgemeldet werden könnten: die Rückkopplung wird erst nach dem ersten Go-Live überhaupt möglich.", correct: true, feedback: "Richtig. Vor dem ersten produktiven Einsatz gibt es keine Betriebsdaten. Erst nach dem Go-Live entstehen reale Nutzungserfahrungen, die systematisch in nachfolgende Releases zurückfließen können." },
         { text: "Weil Rückkopplung nur bei gescheiterten Projekten überhaupt relevant wird, da erfolgreiche Systeme per Definition keine weiteren Anpassungen mehr benötigen.", correct: false, feedback: "Rückkopplung ist bei jedem laufenden System relevant, unabhängig vom Projekterfolg. Sie ist Teil des normalen ALM-Zyklus." },
         { text: "Weil Releases grundsätzlich unabhängig vom laufenden Betrieb geplant werden sollten.", correct: false, feedback: "Das Gegenteil beschreibt die zentrale ALM-Idee: Releases sollten gerade durch Betriebserfahrungen informiert werden, nicht unabhängig davon geplant werden." },
+        { text: "Weil vor der Ersteinführung noch keine Betriebserfahrungen existieren, die zurückgemeldet werden könnten: die Rückkopplung wird erst nach dem ersten Go-Live überhaupt möglich.", correct: true, feedback: "Richtig. Vor dem ersten produktiven Einsatz gibt es keine Betriebsdaten. Erst nach dem Go-Live entstehen reale Nutzungserfahrungen, die systematisch in nachfolgende Releases zurückfließen können." },
       ],
     },
     {
@@ -85,8 +85,8 @@ export const ML7 = {
       message: "ALM gibt uns den strukturellen Rahmen für das, was in den nächsten Levels folgt: Testmanagement und Softwaretransport sind konkrete Ausprägungen einzelner ALM-Phasen. Bevor wir tiefer einsteigen, möchte ich Ihre Einschätzung hören.",
       question: "Was ist die wichtigste konzeptionelle Verbindung zwischen ALM und der bevorstehenden S/4HANA-Konsolidierung von NEXUS Corp?",
       answers: [
-        { text: "ALM zeigt, dass die S/4HANA-Einführung nicht als einmaliges Projekt mit klarem Enddatum verstanden werden sollte, sondern als Beginn eines fortlaufenden Managementzyklus.", correct: true, feedback: "Genau. Das ist die zentrale Lehre: Der Go-Live ist nicht das Ende der Arbeit, sondern der Übergang von Build/Test/Deploy in die Optimize-Phase, von der aus der Zyklus erneut beginnt." },
         { text: "ALM ist nur für die technische Entwicklungsphase relevant und hat nach dem Go-Live keine Bedeutung mehr.", correct: false, feedback: "Das Gegenteil ist der Kern von ALM: Gerade die Optimize-Phase nach dem Go-Live ist zentral für den langfristigen Erfolg." },
+        { text: "ALM zeigt, dass die S/4HANA-Einführung nicht als einmaliges Projekt mit klarem Enddatum verstanden werden sollte, sondern als Beginn eines fortlaufenden Managementzyklus.", correct: true, feedback: "Genau. Das ist die zentrale Lehre: Der Go-Live ist nicht das Ende der Arbeit, sondern der Übergang von Build/Test/Deploy in die Optimize-Phase, von der aus der Zyklus erneut beginnt." },
         { text: "ALM ersetzt die Notwendigkeit von Tests, da der Zyklus automatisch Fehler behebt, sobald Betriebserfahrungen in die nächste Optimize-Phase einfließen.", correct: false, feedback: "ALM ersetzt kein Testmanagement. Im Gegenteil, Test ist eine der sechs zentralen ALM-Phasen und bleibt unverzichtbar." },
       ],
     },

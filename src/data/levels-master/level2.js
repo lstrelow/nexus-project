@@ -20,8 +20,8 @@ export const ML2 = {
       },
       question: "Was war laut offizieller Begründung der zentrale Grund für den Abbruch von eLWIS?",
       answers: [
-        { text: "SAP als Softwarehersteller hat sich aus dem Projekt zurückgezogen.", correct: false, feedback: "SAP war weiterhin als Implementierungspartner beteiligt (u.a. über KPS). Der Rückzug des Herstellers war nicht die Ursache." },
         { text: "Die ursprünglich definierten strategischen Ziele waren mit vertretbarem Aufwand nicht mehr erreichbar.", correct: true, feedback: "Genau das war die offizielle Begründung von Lidl. Über die Jahre wurden über 30 Systeme aus der bestehenden Infrastruktur in eLWIS integriert. Die Komplexität wuchs schneller, als das Projekt sie bewältigen konnte." },
+        { text: "SAP als Softwarehersteller hat sich aus dem Projekt zurückgezogen.", correct: false, feedback: "SAP war weiterhin als Implementierungspartner beteiligt (u.a. über KPS). Der Rückzug des Herstellers war nicht die Ursache." },
         { text: "Es gab keinen ausreichenden Bedarf für ein neues Warenwirtschaftssystem bei Lidl.", correct: false, feedback: "Der Bedarf an einem modernen Warenwirtschaftssystem war unbestritten. Das Scheitern lag an der Umsetzung, nicht am fehlenden Bedarf." },
       ],
     },
@@ -68,10 +68,10 @@ export const ML2 = {
       answers: [
         { text: "Weil das Top-Management die Software am besten technisch versteht.",
           correct: false, feedback: "Technisches Verständnis ist nicht der Kern der Aussage. Es geht um Mandat, Priorisierung und Ressourcenfreigabe." },
-        { text: "Weil ohne sichtbares Committment der Führungsebene notwendige Ressourcen, Priorisierung und organisatorische Durchsetzungskraft für ein Projekt dieser Tragweite fehlen.",
-          correct: true, feedback: "Genau. ES-Einführungen erfordern Entscheidungen, die einzelne Abteilungen nicht allein treffen können. Ohne Top Management Support fehlt die Autorität, um abteilungsübergreifende Konflikte zu lösen." },
         { text: "Weil das Top-Management gesetzlich für den Projekterfolg haftet.",
           correct: false, feedback: "Es geht nicht um rechtliche Haftung, sondern um die praktische Notwendigkeit von Entscheidungsmacht und Ressourcenzuteilung." },
+        { text: "Weil ohne sichtbares Committment der Führungsebene notwendige Ressourcen, Priorisierung und organisatorische Durchsetzungskraft für ein Projekt dieser Tragweite fehlen.",
+          correct: true, feedback: "Genau. ES-Einführungen erfordern Entscheidungen, die einzelne Abteilungen nicht allein treffen können. Ohne Top Management Support fehlt die Autorität, um abteilungsübergreifende Konflikte zu lösen." },
       ],
     },
     {
@@ -93,8 +93,8 @@ export const ML2 = {
       question: "Was unterscheidet ein Unternehmen, das trotz hoher Komplexität erfolgreich transformiert, von einem, das wie Lidl scheitert?",
       answers: [
         { text: "Ausreichendes Budget: Mit genug Geld lässt sich jede Komplexität überwinden, da finanzielle Mittel den Zugang zu den besten Beratern, Tools und Fachkräften sichern.", correct: false, feedback: "Der Lidl-Fall zeigt eindrücklich das Gegenteil: 500 Millionen Euro haben das Scheitern nicht verhindert. Budget allein ist kein Erfolgsfaktor." },
-        { text: "Die konsequente Umsetzung mehrerer kritischer Erfolgsfaktoren gleichzeitig: Top Management Support, klare Ziele, Change Management und Datenqualität wirken zusammen, nicht isoliert.", correct: true, feedback: "Genau. Erfolgreiche Transformationen zeichnen sich nicht durch einen einzelnen Erfolgsfaktor aus, sondern durch das Zusammenspiel mehrerer Faktoren. Das Fehlen eines einzigen kann bereits das gesamte Projekt gefährden." },
         { text: "Die Wahl des richtigen Softwareanbieters: SAP-Projekte scheitern grundsätzlich seltener als andere.", correct: false, feedback: "Der Lidl-Fall widerlegt das direkt: Es war ein SAP-basiertes Projekt und ist dennoch gescheitert. Die Softwarewahl allein garantiert keinen Erfolg." },
+        { text: "Die konsequente Umsetzung mehrerer kritischer Erfolgsfaktoren gleichzeitig: Top Management Support, klare Ziele, Change Management und Datenqualität wirken zusammen, nicht isoliert.", correct: true, feedback: "Genau. Erfolgreiche Transformationen zeichnen sich nicht durch einen einzelnen Erfolgsfaktor aus, sondern durch das Zusammenspiel mehrerer Faktoren. Das Fehlen eines einzigen kann bereits das gesamte Projekt gefährden." },
       ],
     },
   ],

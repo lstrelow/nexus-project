@@ -20,8 +20,8 @@ export const ML5 = {
       },
       question: "Was ist der entscheidende konzeptionelle Unterschied zwischen 'IT Architecture' (1980er) und 'Enterprise Architecture' (heute)?",
       answers: [
-        { text: "Enterprise Architecture beschäftigt sich ausschließlich mit Cloud-Technologien, IT Architecture mit On-Premise-Systemen, da sich beide Begriffe historisch entlang der jeweiligen Infrastrukturform entwickelt haben.", correct: false, feedback: "Der Unterschied liegt nicht in der eingesetzten Technologie, sondern im Betrachtungsumfang der Architektur." },
         { text: "Enterprise Architecture bezieht zusätzlich zur Business/IT-Abstimmung auch Unternehmensstruktur und strategische Ziele mit ein. IT Architecture fokussierte primär das Alignment zwischen Business und IT.", correct: true, feedback: "Genau. Die zentrale Erweiterung ist: Es reicht nicht, IT und Business aufeinander abzustimmen. Die gesamte Unternehmensstruktur und -strategie muss mitgedacht werden." },
+        { text: "Enterprise Architecture beschäftigt sich ausschließlich mit Cloud-Technologien, IT Architecture mit On-Premise-Systemen, da sich beide Begriffe historisch entlang der jeweiligen Infrastrukturform entwickelt haben.", correct: false, feedback: "Der Unterschied liegt nicht in der eingesetzten Technologie, sondern im Betrachtungsumfang der Architektur." },
         { text: "Es gibt keinen inhaltlichen Unterschied: beide Begriffe werden synonym verwendet und lediglich je nach akademischer Tradition unterschiedlich benannt.", correct: false, feedback: "Es gibt einen klaren konzeptionellen Entwicklungsschritt zwischen beiden Begriffen, wie die historische Entwicklung zeigt." },
       ],
     },
@@ -40,8 +40,8 @@ export const ML5 = {
       },
       question: "Was haben alle drei vorgestellten EA-Definitionen trotz unterschiedlicher Formulierung gemeinsam?",
       answers: [
-        { text: "Sie betrachten Enterprise Architecture ausschließlich als technisches IT-Dokumentationsprojekt.", correct: false, feedback: "Im Gegenteil: alle drei Definitionen betonen explizit organisatorische, strategische und teilweise sogar psychologische Aspekte, nicht nur die Technik." },
         { text: "Sie verstehen Enterprise Architecture als integrierte Betrachtung von Strategie, Organisation und Technologie, nicht als isoliertes IT-Thema.", correct: true, feedback: "Richtig. Ob als 'Sammlung von Plänen', 'Zusammenwirken der Aspekte' oder 'integrierte Perspektive' formuliert: Der gemeinsame Kern ist die Verbindung mehrerer Betrachtungsebenen." },
+        { text: "Sie betrachten Enterprise Architecture ausschließlich als technisches IT-Dokumentationsprojekt.", correct: false, feedback: "Im Gegenteil: alle drei Definitionen betonen explizit organisatorische, strategische und teilweise sogar psychologische Aspekte, nicht nur die Technik." },
         { text: "Sie beziehen sich ausschließlich auf die Vergangenheit eines Unternehmens, nicht auf zukünftige Zustände.", correct: false, feedback: "Mindestens eine der Definitionen bezieht explizit 'past, current and future states' ein. Die Zukunftsperspektive ist zentraler Bestandteil des EA-Verständnisses." },
       ],
     },
@@ -62,8 +62,8 @@ export const ML5 = {
       question: "Warum ist der klassische Anspruch 'ein Standardsoftwarehersteller deckt alle betrieblichen Aufgaben ab' heute kaum noch haltbar?",
       answers: [
         { text: "Weil Standardsoftware grundsätzlich technisch minderwertig geworden ist und mit den Anforderungen moderner, spezialisierter Fachanwendungen schlicht nicht mehr mithalten kann.", correct: false, feedback: "Die Qualität der Standardsoftware ist nicht das Problem. Die Ursache liegt in der Konvergenz von IT und Produkt sowie der enormen Technologievielfalt." },
-        { text: "Weil IT-Systeme heute selbst Teil wettbewerbsdifferenzierender Produkte sind und die Technologievielfalt so groß geworden ist, dass kein einzelner Hersteller alle Anforderungen antizipieren kann.", correct: true, feedback: "Genau. Beide Beobachtungen zusammen, Konvergenz von Produkt und IT sowie explodierende Technologievielfalt, führen dazu, dass Integrationsfähigkeit statt vollständiger Integration zum realistischen Architekturprinzip wird." },
         { text: "Weil Unternehmen grundsätzlich keine Standardsoftware mehr einsetzen wollen.", correct: false, feedback: "Standardsoftware bleibt weiterhin zentral. Die Verschiebung betrifft den Integrationsanspruch, nicht die grundsätzliche Nutzung von Standardsoftware." },
+        { text: "Weil IT-Systeme heute selbst Teil wettbewerbsdifferenzierender Produkte sind und die Technologievielfalt so groß geworden ist, dass kein einzelner Hersteller alle Anforderungen antizipieren kann.", correct: true, feedback: "Genau. Beide Beobachtungen zusammen, Konvergenz von Produkt und IT sowie explodierende Technologievielfalt, führen dazu, dass Integrationsfähigkeit statt vollständiger Integration zum realistischen Architekturprinzip wird." },
       ],
     },
     {
@@ -85,8 +85,8 @@ export const ML5 = {
       question: "Sophie stellt fest: 'Ich kann die SOLL-Architektur für S/4HANA nicht seriös planen, weil wir keine vollständige Dokumentation der IST-Architektur haben.' Was zeigt diese Aussage?",
       answers: [
         { text: "Dass Dokumentation und Planung völlig unabhängige, austauschbare Aufgaben sind.", correct: false, feedback: "Das Gegenteil zeigt Sophies Aussage: Beide Aufgaben stehen in einer klaren Abhängigkeit zueinander." },
-        { text: "Dass die sechs EAM-Aufgabenfelder aufeinander aufbauen: eine unvollständige Dokumentation untergräbt direkt die Qualität der nachfolgenden Planung.", correct: true, feedback: "Genau. Die Aufgabenfelder sind keine isolierten Checklisten-Punkte, sondern bauen logisch aufeinander auf. Ohne solide IST-Dokumentation bleibt jede SOLL-Planung spekulativ." },
         { text: "Dass Sophie ihre Aufgabe nicht richtig verstanden hat, da Planung immer vor Dokumentation erfolgen sollte.", correct: false, feedback: "Die übliche Reihenfolge ist genau umgekehrt: Eine fundierte IST-Dokumentation ist die Voraussetzung für eine belastbare SOLL-Planung." },
+        { text: "Dass die sechs EAM-Aufgabenfelder aufeinander aufbauen: eine unvollständige Dokumentation untergräbt direkt die Qualität der nachfolgenden Planung.", correct: true, feedback: "Genau. Die Aufgabenfelder sind keine isolierten Checklisten-Punkte, sondern bauen logisch aufeinander auf. Ohne solide IST-Dokumentation bleibt jede SOLL-Planung spekulativ." },
       ],
     },
     {
@@ -127,8 +127,8 @@ export const ML5 = {
       message: "Wir haben jetzt gesehen, dass Enterprise Architecture Management kein neues Konzept ist. Es hat eine sechzigjährige Entwicklungsgeschichte. Aber die grundlegende Herausforderung bleibt bestehen: Wie bringt man Struktur in eine gewachsene Systemlandschaft, ohne die Innovationsfähigkeit zu ersticken?",
       question: "Was ist die zentrale Spannung, die Enterprise Architecture Management bei NEXUS Corp navigieren muss?",
       answers: [
-        { text: "Der Zielkonflikt zwischen einer stabilen, gut dokumentierten Architektur (Transparenz, Komplexitätsmanagement) und der Notwendigkeit, gleichzeitig Innovation und Veränderung zuzulassen.", correct: true, feedback: "Ausgezeichnet. Enterprise Architecture muss stabil genug sein, um Komplexität zu managen, aber gleichzeitig offen genug bleiben, um innovative und architektonische Veränderungen zu ermöglichen. Dieser Balanceakt ist die Kernaufgabe von EAM." },
         { text: "Der Konflikt zwischen deutschem und französischem Recht bei der Datenverarbeitung.", correct: false, feedback: "Rechtliche Compliance ist ein wichtiges Detailthema, aber nicht die zentrale konzeptionelle Spannung des Enterprise Architecture Managements als Disziplin." },
+        { text: "Der Zielkonflikt zwischen einer stabilen, gut dokumentierten Architektur (Transparenz, Komplexitätsmanagement) und der Notwendigkeit, gleichzeitig Innovation und Veränderung zuzulassen.", correct: true, feedback: "Ausgezeichnet. Enterprise Architecture muss stabil genug sein, um Komplexität zu managen, aber gleichzeitig offen genug bleiben, um innovative und architektonische Veränderungen zu ermöglichen. Dieser Balanceakt ist die Kernaufgabe von EAM." },
         { text: "Der Konflikt zwischen SAP und Salesforce als Softwareanbietern, da die Wahl des Herstellers letztlich über Erfolg oder Misserfolg der gesamten Architekturstrategie entscheidet.", correct: false, feedback: "Die Wahl konkreter Anbieter ist eine nachgelagerte Entscheidung. Die zentrale Spannung liegt auf der konzeptionellen Ebene zwischen Stabilität und Veränderungsfähigkeit." },
       ],
     },

@@ -20,9 +20,9 @@ export const ML6 = {
       },
       question: "Warum reicht es nicht aus, ein Template nur als 'technisches System' zu verstehen?",
       answers: [
-        { text: "Weil ein Template zusätzlich den betriebswirtschaftlichen Kern definieren muss: also welche Prozesse und Daten standardisiert werden, nicht nur welche Technik verwendet wird.", correct: true, feedback: "Genau. Der betriebswirtschaftliche Kern (Prozesse, Stammdaten) und der technische Systemkern gehören untrennbar zusammen. Ein Template ohne klaren Prozessstandard wäre nur eine leere technische Hülle." },
         { text: "Weil Templates ausschließlich für die Finanzbuchhaltung relevant sind.", correct: false, feedback: "Templates können für unterschiedlichste Bereiche relevant sein: Finanzsysteme, ERP mit Fokus auf Beschaffung/Vertrieb, SCM- oder CRM-Systeme, nicht nur Finanzbuchhaltung." },
         { text: "Weil technische Systeme sich ohnehin nicht standardisieren lassen, da jede Landesgesellschaft zwangsläufig eigene, inkompatible Hardware- und Softwareanforderungen mitbringt.", correct: false, feedback: "Das Gegenteil ist der Fall. Die technische Standardisierung ist einer der beiden zentralen Bestandteile eines Templates." },
+        { text: "Weil ein Template zusätzlich den betriebswirtschaftlichen Kern definieren muss: also welche Prozesse und Daten standardisiert werden, nicht nur welche Technik verwendet wird.", correct: true, feedback: "Genau. Der betriebswirtschaftliche Kern (Prozesse, Stammdaten) und der technische Systemkern gehören untrennbar zusammen. Ein Template ohne klaren Prozessstandard wäre nur eine leere technische Hülle." },
       ],
     },
     {
@@ -63,8 +63,8 @@ export const ML6 = {
       question: "Warum reicht 'nur legale Anforderungen umsetzen' bei NEXUS France womöglich nicht aus?",
       answers: [
         { text: "Weil legale Anforderungen grundsätzlich unwichtig für Unternehmensentscheidungen sind.", correct: false, feedback: "Legale Anforderungen sind zwingend umzusetzen. Die Frage ist, ob DARÜBER HINAUS auch weitere regionale Besonderheiten berücksichtigt werden müssen." },
-        { text: "Weil NEXUS France neben gesetzlichen Vorgaben auch spezifische Geschäftsprozesse oder Kundenanforderungen haben könnte, die über die reine Rechtskonformität hinausgehen und eine differenziertere Template-Ausprägung erfordern.", correct: true, feedback: "Genau. 'Nur legale Anforderungen' ist die restriktivste Ausprägung. Wenn NEXUS France zusätzliche geschäftliche Besonderheiten hat, wäre ein Ansatz 'mit eigenen Systemen' angemessener, um diese abzubilden." },
         { text: "Weil Frankreich keine eigenen gesetzlichen Anforderungen an Unternehmenssoftware hat und die EU-weite Rechtsangleichung nationale Sonderregelungen längst überflüssig gemacht hat.", correct: false, feedback: "Das Gegenteil ist der Fall. Frankreich hat wie jedes Land eigene rechtliche Anforderungen, die bei jeder Template-Strategie berücksichtigt werden müssen." },
+        { text: "Weil NEXUS France neben gesetzlichen Vorgaben auch spezifische Geschäftsprozesse oder Kundenanforderungen haben könnte, die über die reine Rechtskonformität hinausgehen und eine differenziertere Template-Ausprägung erfordern.", correct: true, feedback: "Genau. 'Nur legale Anforderungen' ist die restriktivste Ausprägung. Wenn NEXUS France zusätzliche geschäftliche Besonderheiten hat, wäre ein Ansatz 'mit eigenen Systemen' angemessener, um diese abzubilden." },
       ],
     },
     {
@@ -83,8 +83,8 @@ export const ML6 = {
       },
       question: "Warum reicht eine gemeinsam definierte Prozessstandardisierung (betriebswirtschaftlicher Kern) allein nicht aus, um eine erfolgreiche Template-Strategie umzusetzen?",
       answers: [
-        { text: "Weil ohne geregelte technische Governance (Plattform, Integrationsinfrastruktur etc.) die Systeme trotz gemeinsamer Prozessstandards technisch auseinanderdriften und die Integration langfristig scheitert.", correct: true, feedback: "Genau. Prozessstandardisierung und technische Governance müssen zusammen gedacht werden. Ein gemeinsamer Prozessstandard nützt wenig, wenn die zugrunde liegenden Systeme technisch inkompatibel bleiben." },
         { text: "Weil technische Governance in der Praxis irrelevant ist und nur ein theoretisches Konstrukt darstellt.", correct: false, feedback: "Technische Governance hat sehr konkrete praktische Konsequenzen, etwa bei Integrationsproblemen zwischen unterschiedlichen Plattformen oder Zeichenkodierungen." },
+        { text: "Weil ohne geregelte technische Governance (Plattform, Integrationsinfrastruktur etc.) die Systeme trotz gemeinsamer Prozessstandards technisch auseinanderdriften und die Integration langfristig scheitert.", correct: true, feedback: "Genau. Prozessstandardisierung und technische Governance müssen zusammen gedacht werden. Ein gemeinsamer Prozessstandard nützt wenig, wenn die zugrunde liegenden Systeme technisch inkompatibel bleiben." },
         { text: "Weil Prozessstandardisierung und technische Governance in Wirklichkeit dasselbe Thema sind und sich beide Fragen automatisch lösen, sobald ein gemeinsamer Prozessstandard definiert ist.", correct: false, feedback: "Es handelt sich um zwei unterschiedliche, sich ergänzende Dimensionen: der betriebswirtschaftliche Kern (was) und die technische Governance (wie technisch umgesetzt)." },
       ],
     },
@@ -104,8 +104,8 @@ export const ML6 = {
       },
       question: "Warum betont die Vorlage explizit, dass die konkrete Ausprägung von Vor- und Nachteilen von der 'zugrunde liegenden Unternehmensstruktur und vorhandenen Alt-Systemen' abhängt?",
       answers: [
-        { text: "Weil es keine universell richtige Template-Strategie gibt: dieselbe Strategie kann je nach Ausgangssituation eines Unternehmens völlig unterschiedliche Vor- und Nachteile entfalten.", correct: true, feedback: "Genau. Das ist eine zentrale Lehre für NEXUS Corp: Eine Strategie, die für NEXUS Deutschland (bereits homogenes SAP) passt, kann für NEXUS Parts (Nischensystem) völlig ungeeignet sein. Die Bewertung ist immer kontextabhängig." },
         { text: "Weil Vor- und Nachteile grundsätzlich subjektiv sind und sich nicht objektiv bewerten lassen.", correct: false, feedback: "Die Vor- und Nachteile sind objektiv beschreibbar. Ihre relative Gewichtung hängt aber vom konkreten Unternehmenskontext ab, nicht von reiner Subjektivität." },
+        { text: "Weil es keine universell richtige Template-Strategie gibt: dieselbe Strategie kann je nach Ausgangssituation eines Unternehmens völlig unterschiedliche Vor- und Nachteile entfalten.", correct: true, feedback: "Genau. Das ist eine zentrale Lehre für NEXUS Corp: Eine Strategie, die für NEXUS Deutschland (bereits homogenes SAP) passt, kann für NEXUS Parts (Nischensystem) völlig ungeeignet sein. Die Bewertung ist immer kontextabhängig." },
         { text: "Weil alle Unternehmen letztlich dieselben Alt-Systeme haben und die Aussage daher trivial ist, da moderne Standardsoftware ohnehin überall zu vergleichbaren IT-Landschaften führt.", correct: false, feedback: "Das Gegenteil ist der Fall. NEXUS Corp zeigt gerade, wie unterschiedlich Alt-Systeme innerhalb eines einzigen Konzerns sein können." },
       ],
     },
@@ -124,8 +124,8 @@ export const ML6 = {
       question: "Welche Aussage beschreibt den Kern des Template-Ansatzes für Large Enterprise Systems am treffendsten?",
       answers: [
         { text: "Ein Template ist in erster Linie eine technische Software-Konfiguration und hat wenig mit strategischen Unternehmensentscheidungen zu tun, da es lediglich vorgibt, welche Systeme installiert werden.", correct: false, feedback: "Das Gegenteil zeigt dieses Level: Die Wahl der Template-Strategie ist eine strategische Entscheidung mit weitreichenden organisatorischen, kulturellen und technischen Konsequenzen." },
-        { text: "Der Template-Ansatz erfordert eine bewusste strategische Entscheidung über den Grad der Standardisierung, zwischen maximaler lokaler Flexibilität und maximalen globalen Synergieeffekten, verbunden mit konsequenter technischer und prozessualer Governance.", correct: true, feedback: "Präzise. Das ist die zentrale Erkenntnis: Es gibt nicht die eine richtige Antwort, sondern eine bewusste Positionierung im Spannungsfeld zwischen Standardisierung und Flexibilität, die dann konsequent technisch und organisatorisch umgesetzt werden muss." },
         { text: "Die beste Template-Strategie ist immer 'Global Single System', da sie die meisten Synergieeffekte bietet und Unternehmen langfristig immer von maximaler Vereinheitlichung profitieren, unabhängig von Branche oder Unternehmensgröße.", correct: false, feedback: "Es gibt keine pauschal beste Strategie. Die Wahl hängt von der jeweiligen Unternehmenssituation, Alt-Systemen und kulturellen Faktoren ab." },
+        { text: "Der Template-Ansatz erfordert eine bewusste strategische Entscheidung über den Grad der Standardisierung, zwischen maximaler lokaler Flexibilität und maximalen globalen Synergieeffekten, verbunden mit konsequenter technischer und prozessualer Governance.", correct: true, feedback: "Präzise. Das ist die zentrale Erkenntnis: Es gibt nicht die eine richtige Antwort, sondern eine bewusste Positionierung im Spannungsfeld zwischen Standardisierung und Flexibilität, die dann konsequent technisch und organisatorisch umgesetzt werden muss." },
       ],
     },
   ],

@@ -20,8 +20,8 @@ export const ML4 = {
       },
       question: "Warum reicht 'mehr Systeme' als Erklärung für steigende Komplexität nicht aus?",
       answers: [
-        { text: "Weil die Anzahl der Systeme überhaupt keinen Einfluss auf die Komplexität hat, da ausschließlich organisatorische Faktoren wie Hierarchisierung über den Grad der Komplexität entscheiden.", correct: false, feedback: "Die Anzahl der Elemente ist durchaus ein wichtiger Faktor, aber eben nicht der einzige." },
         { text: "Weil Komplexität sich aus dem Zusammenspiel mehrerer Faktoren ergibt: Elementanzahl, Änderungshäufigkeit und Hierarchisierung wirken gemeinsam, nicht isoliert.", correct: true, feedback: "Genau. Diese drei Faktoren addieren sich zur Gesamtkomplexität. Ein Unternehmen mit vielen, aber stabilen und flach organisierten Systemen kann weniger komplex sein als eines mit wenigen, aber volatilen und tief hierarchisierten Systemen." },
+        { text: "Weil die Anzahl der Systeme überhaupt keinen Einfluss auf die Komplexität hat, da ausschließlich organisatorische Faktoren wie Hierarchisierung über den Grad der Komplexität entscheiden.", correct: false, feedback: "Die Anzahl der Elemente ist durchaus ein wichtiger Faktor, aber eben nicht der einzige." },
         { text: "Weil nur die Hierarchisierung von Aufgaben für Komplexität verantwortlich ist, nicht die Systemanzahl.", correct: false, feedback: "Hierarchisierung ist einer von drei Faktoren. Sie allein erklärt die Komplexitätsentstehung nicht vollständig." },
       ],
     },
@@ -41,8 +41,8 @@ export const ML4 = {
       },
       question: "Ein System hat viele unterschiedliche Elemente mit intensiven Interaktionen, ändert sich aber kaum über die Zeit. Wie ist dieses System einzuordnen?",
       answers: [
-        { text: "Als 'einfaches System', weil es sich kaum ändert. Stabilität über die Zeit gilt gemeinhin als das wichtigste Merkmal eines einfachen, gut beherrschbaren Systems.", correct: false, feedback: "Fehlende Änderung bedeutet niedrige dynamische Komplexität. Das sagt nichts über die strukturelle Komplexität aus, die hier laut Beschreibung hoch ist." },
         { text: "Als 'kompliziertes System': hohe strukturelle Komplexität (viele, unterschiedliche, stark interagierende Elemente) bei gleichzeitig niedriger dynamischer Komplexität.", correct: true, feedback: "Richtig. Die Matrix aus struktureller und dynamischer Komplexität liefert genau diese Einordnung: hohe Struktur + niedrige Dynamik = kompliziertes (aber nicht dynamisches) System." },
+        { text: "Als 'einfaches System', weil es sich kaum ändert. Stabilität über die Zeit gilt gemeinhin als das wichtigste Merkmal eines einfachen, gut beherrschbaren Systems.", correct: false, feedback: "Fehlende Änderung bedeutet niedrige dynamische Komplexität. Das sagt nichts über die strukturelle Komplexität aus, die hier laut Beschreibung hoch ist." },
         { text: "Als 'komplexes System', weil viele Elemente automatisch hohe Dynamik bedeuten.", correct: false, feedback: "Elementanzahl und Änderungsdynamik sind unabhängige Dimensionen. Viele Elemente bedeuten nicht automatisch häufige Änderungen." },
       ],
     },
@@ -62,9 +62,9 @@ export const ML4 = {
       },
       question: "Was bedeutet ein hoher HHI-Wert bezogen auf die IT-Landschaft eines Unternehmens?",
       answers: [
-        { text: "Eine hohe Konzentration: wenige, dominante Systeme bestimmen die Landschaft.", correct: true, feedback: "Genau. Ein hoher HHI steigt bei geringerer Systemanzahl oder höherer Verschiedenartigkeit. Er zeigt eine hohe Konzentration an, nicht Fragmentierung." },
         { text: "Eine hohe Fragmentierung mit vielen gleichberechtigten Systemen.", correct: false, feedback: "Das Gegenteil ist der Fall. Ein hoher HHI zeigt Konzentration, nicht Fragmentierung an." },
         { text: "Eine automatisch hohe Wirtschaftlichkeit der IT-Landschaft.", correct: false, feedback: "Der HHI misst Konzentration, nicht Wirtschaftlichkeit. Beide Größen hängen nicht direkt zusammen." },
+        { text: "Eine hohe Konzentration: wenige, dominante Systeme bestimmen die Landschaft.", correct: true, feedback: "Genau. Ein hoher HHI steigt bei geringerer Systemanzahl oder höherer Verschiedenartigkeit. Er zeigt eine hohe Konzentration an, nicht Fragmentierung." },
       ],
     },
     {
@@ -93,8 +93,8 @@ export const ML4 = {
       message: "Wir haben jetzt zwei Kennzahlensysteme kennengelernt: das Entropiemaß und die Dern-und-Jung-Formel. Beide haben ihre Berechtigung, aber auch ihre Grenzen. Bevor wir weitermachen: Was ist die zentrale Schwäche, die beiden Ansätzen gemeinsam ist?",
       question: "Was ist eine grundlegende, gemeinsame Einschränkung von Entropiemaß und Dern-und-Jung-Formel?",
       answers: [
-        { text: "Beide Kennzahlen sind zu kompliziert zu berechnen und daher in der Praxis nutzlos.", correct: false, feedback: "Die Berechnungskomplexität ist nicht die zentrale Einschränkung. Beide Formeln sind mit vorhandenen Daten praktisch anwendbar." },
         { text: "Beide messen nur die strukturelle Komplexität zu einem Zeitpunkt, die dynamische Komplexität und Pfadabhängigkeiten vergangener Entscheidungen bleiben unberücksichtigt.", correct: true, feedback: "Genau das ist die zentrale Einschränkung: Beide Kennzahlen sind statische Momentaufnahmen. Sie erfassen nicht, wie sich Systeme im Zeitverlauf entwickelt haben oder welche Pfadabhängigkeiten vergangene Entscheidungen erzeugt haben." },
+        { text: "Beide Kennzahlen sind zu kompliziert zu berechnen und daher in der Praxis nutzlos.", correct: false, feedback: "Die Berechnungskomplexität ist nicht die zentrale Einschränkung. Beide Formeln sind mit vorhandenen Daten praktisch anwendbar." },
         { text: "Beide Kennzahlen können nur bei SAP-Systemen angewendet werden, da sie ursprünglich speziell zur Analyse von SAP-Modullandschaften entwickelt wurden.", correct: false, feedback: "Beide Ansätze sind herstellerunabhängig konzipiert und lassen sich grundsätzlich auf jede IT-Landschaft anwenden." },
       ],
     },
@@ -133,9 +133,9 @@ export const ML4 = {
       message: "Wir haben jetzt gesehen, dass Komplexität zwar messbar ist, aber Kennzahlen allein reichen nicht aus, um sie zu managen. Was ist Ihre wichtigste Erkenntnis für die weitere Architekturarbeit bei NEXUS Corp?",
       question: "Warum reichen Komplexitätskennzahlen wie Entropiemaß oder die Dern-und-Jung-Formel allein nicht aus, um Komplexität bei NEXUS Corp zu managen?",
       answers: [
-        { text: "Weil Kennzahlen zwar den Status quo messbar machen, aber keine Skala liefern, ab welchem Wert Komplexität als problematisch gilt, und weil Wahrnehmung von Komplexität grundsätzlich subjektiv bleibt.", correct: true, feedback: "Genau. Kennzahlen sind ein notwendiger, aber kein hinreichender erster Schritt. Es braucht eine strategische Antwort, die über reine Metriken hinausgeht, etwa durch Standardisierung und aktives Applikationsmanagement." },
         { text: "Weil Kennzahlen grundsätzlich falsch berechnet werden und keine verlässlichen Werte liefern.", correct: false, feedback: "Die Kennzahlen sind methodisch korrekt berechenbar. Das Problem liegt nicht in der Berechnung, sondern in der fehlenden Skala und der subjektiven Bewertung der Ergebnisse." },
         { text: "Weil Komplexität bei NEXUS Corp inzwischen zu hoch ist, um überhaupt gemessen zu werden, da die schiere Anzahl an Systemen und Abhängigkeiten jede belastbare Berechnung unmöglich macht.", correct: false, feedback: "Auch sehr komplexe Systeme lassen sich mit den vorgestellten Kennzahlen messen. Das Messen selbst ist nicht das Problem, sondern die Interpretation und Handlungsableitung." },
+        { text: "Weil Kennzahlen zwar den Status quo messbar machen, aber keine Skala liefern, ab welchem Wert Komplexität als problematisch gilt, und weil Wahrnehmung von Komplexität grundsätzlich subjektiv bleibt.", correct: true, feedback: "Genau. Kennzahlen sind ein notwendiger, aber kein hinreichender erster Schritt. Es braucht eine strategische Antwort, die über reine Metriken hinausgeht, etwa durch Standardisierung und aktives Applikationsmanagement." },
       ],
     },
   ],

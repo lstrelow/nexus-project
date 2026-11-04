@@ -26,8 +26,8 @@ export const ML1 = {
       },
       question: "Was ist die wahrscheinlichste Konsequenz dieser gewachsenen Systemlandschaft für NEXUS Corp?",
       answers: [
-        { text: "Keine nennenswerten Probleme: Mehr Systeme bedeuten mehr Flexibilität für jede Landesgesellschaft.", correct: false, feedback: "Genau das Gegenteil ist der Fall. Ohne übergreifende Architektur entstehen Redundanzen, Inkonsistenzen und explodierende Integrationskosten, wie Priya bereits andeutet." },
         { text: "Redundante Stammdaten, inkonsistente Prozesse und eine massiv gestiegene Architektur-Komplexität, die das Unternehmen zunehmend handlungsunfähig macht.", correct: true, feedback: "Genau das ist die Kernproblematik gewachsener Konzern-IT-Landschaften: vier unabhängige Systemwelten ohne gemeinsames Architekturverständnis erzeugen genau diese Effekte." },
+        { text: "Keine nennenswerten Probleme: Mehr Systeme bedeuten mehr Flexibilität für jede Landesgesellschaft.", correct: false, feedback: "Genau das Gegenteil ist der Fall. Ohne übergreifende Architektur entstehen Redundanzen, Inkonsistenzen und explodierende Integrationskosten, wie Priya bereits andeutet." },
         { text: "Die Systeme werden sich mit der Zeit von selbst vereinheitlichen, sobald alle Mitarbeitenden eingearbeitet sind.", correct: false, feedback: "Systemlandschaften konsolidieren sich nicht von selbst. Ohne aktives Architekturmanagement verfestigt sich die Fragmentierung eher, als dass sie sich auflöst." },
       ],
     },
@@ -42,8 +42,8 @@ export const ML1 = {
       },
       question: "Maya sagt: 'Früher war IT ein Werkzeug. Heute ist IT die Grenze dessen, was wir als Unternehmen überhaupt tun können.' Was beschreibt diese Aussage am treffendsten?",
       answers: [
-        { text: "Dass NEXUS Corp zu wenig Geld in IT investiert hat, obwohl gerade in Wachstumsphasen ein ausreichendes IT-Budget häufig als wichtigster Erfolgsfaktor für eine gelungene Digitalisierung gilt.", correct: false, feedback: "Das Kernproblem ist nicht der IT-Investitionsumfang, sondern die fehlende architektonische Kohärenz der Investitionen." },
         { text: "Dass die IT-Architektur von einer unterstützenden Funktion zu einem strategischen Engpassfaktor geworden ist, der unternehmerische Handlungsfähigkeit direkt begrenzt.", correct: true, feedback: "Richtig. Das ist die zentrale Beobachtung hinter 'Large Enterprise Systems': In komplexen, gewachsenen Landschaften wird die IT-Architektur selbst zum limitierenden Faktor für unternehmerisches Handeln." },
+        { text: "Dass NEXUS Corp zu wenig Geld in IT investiert hat, obwohl gerade in Wachstumsphasen ein ausreichendes IT-Budget häufig als wichtigster Erfolgsfaktor für eine gelungene Digitalisierung gilt.", correct: false, feedback: "Das Kernproblem ist nicht der IT-Investitionsumfang, sondern die fehlende architektonische Kohärenz der Investitionen." },
         { text: "Dass Maya keine ausreichende technische Expertise besitzt, um die Situation zu verstehen.", correct: false, feedback: "Mayas Beobachtung ist eine zutreffende strategische Diagnose, unabhängig von ihrem technischen Detailwissen." },
       ],
     },
@@ -75,8 +75,8 @@ export const ML1 = {
       question: "Was zeigt Toms Beispiel exemplarisch?",
       answers: [
         { text: "Dass Systemintegration nach einer Übernahme ein rein technisches Problem ist, das mit genug Entwicklerzeit gelöst werden kann.", correct: false, feedback: "Systemintegration nach Übernahmen ist selten rein technisch. Unterschiedliche Datenmodelle, Prozesslogiken und organisatorische Verantwortlichkeiten erschweren die Integration erheblich." },
-        { text: "Dass fehlende Systemintegration nach Unternehmensübernahmen operative Kernprozesse direkt und spürbar verlangsamt.", correct: true, feedback: "Genau das ist der Kern des Problems: Was auf der Strategiefolie als 'Synergiepotenzial' erscheint, wird im Tagesgeschäft zur konkreten Bremse, wie Toms Lagerbeispiel zeigt." },
         { text: "Dass Tom für seine neue, globale Rolle nicht ausreichend qualifiziert ist.", correct: false, feedback: "Toms Herausforderung liegt nicht an mangelnder Qualifikation, sondern an der strukturellen Fragmentierung der Systemlandschaft." },
+        { text: "Dass fehlende Systemintegration nach Unternehmensübernahmen operative Kernprozesse direkt und spürbar verlangsamt.", correct: true, feedback: "Genau das ist der Kern des Problems: Was auf der Strategiefolie als 'Synergiepotenzial' erscheint, wird im Tagesgeschäft zur konkreten Bremse, wie Toms Lagerbeispiel zeigt." },
       ],
     },
     {
@@ -91,8 +91,8 @@ export const ML1 = {
       question: "Was beschreibt Carlos' Beispiel am treffendsten?",
       answers: [
         { text: "Ein reines Trainingsproblem: Die Vertriebsmitarbeitenden müssten nur besser geschult werden. Mit ausreichenden Schulungen ließen sich Dateninkonsistenzen in aller Regel durch sorgfältigere manuelle Eingabe kompensieren.", correct: false, feedback: "Das Problem liegt nicht in der Qualifikation der Mitarbeitenden, sondern in der fehlenden Datenintegration zwischen den Systemen selbst." },
-        { text: "Fehlende Datenintegration verhindert eine konzernweit einheitliche Kundensicht, ein zentrales Symptom fragmentierter Enterprise-System-Landschaften.", correct: true, feedback: "Genau. Eine 'Single Source of Truth' für Kundendaten ist eines der Kernversprechen integrierter Enterprise Systems, und genau das geht bei unkoordiniertem Wachstum durch M&A verloren." },
         { text: "Das Problem betrifft nur den Vertrieb und hat keine weiteren Konsequenzen für das Unternehmen.", correct: false, feedback: "Fehlende Kundendatenintegration wirkt sich auch auf Controlling, Lieferketten und strategische Entscheidungen aus. Das Problem ist nicht auf den Vertrieb beschränkt." },
+        { text: "Fehlende Datenintegration verhindert eine konzernweit einheitliche Kundensicht, ein zentrales Symptom fragmentierter Enterprise-System-Landschaften.", correct: true, feedback: "Genau. Eine 'Single Source of Truth' für Kundendaten ist eines der Kernversprechen integrierter Enterprise Systems, und genau das geht bei unkoordiniertem Wachstum durch M&A verloren." },
       ],
     },
     {
@@ -106,8 +106,8 @@ export const ML1 = {
       },
       question: "Was ist die grundlegende Voraussetzung, damit Lena ihre eigentliche Aufgabe wieder erfüllen kann?",
       answers: [
-        { text: "Lena benötigt vor allem leistungsfähigere Analysesoftware mit mehr Funktionen.", correct: false, feedback: "Zusätzliche Software-Funktionen lösen das Kernproblem nicht. Die Datenbasis selbst ist fragmentiert und inkonsistent." },
         { text: "Eine konsolidierte, konzernweite Datenintegration: Ohne einheitliche Datenbasis bleibt jede Analyse-Funktionalität wirkungslos.", correct: true, feedback: "Exakt. Das ist eine zentrale Lehre aus BI-Architekturen: Die beste Analysefähigkeit ist wertlos, wenn die zugrunde liegende Datenintegration fehlt. 'Garbage in, garbage out' gilt erst recht bei fragmentierten Konzernstrukturen." },
+        { text: "Lena benötigt vor allem leistungsfähigere Analysesoftware mit mehr Funktionen.", correct: false, feedback: "Zusätzliche Software-Funktionen lösen das Kernproblem nicht. Die Datenbasis selbst ist fragmentiert und inkonsistent." },
         { text: "Lena sollte einfach mit den Daten einer einzigen Landesgesellschaft arbeiten und die anderen ignorieren.", correct: false, feedback: "Das würde Mayas Bedarf an konzernweiten Entscheidungsgrundlagen nicht erfüllen und das eigentliche Problem nur umgehen statt lösen." },
       ],
     },
@@ -122,8 +122,8 @@ export const ML1 = {
       },
       question: "Warum ist die Position einer Enterprise Architektin gerade jetzt für NEXUS Corp entscheidend?",
       answers: [
-        { text: "Weil Enterprise Architects in erster Linie für die Auswahl neuer Softwareprodukte zuständig sind.", correct: false, feedback: "Softwareauswahl ist nur ein kleiner Teil der Aufgabe. Enterprise Architecture Management umfasst die ganzheitliche Steuerung von Geschäfts-, Daten-, Applikations- und Technologiearchitektur." },
         { text: "Weil eine Systemkonsolidierung dieser Größenordnung eine ganzheitliche, methodische Steuerung von Geschäfts- und IT-Architektur erfordert, eine Aufgabe, die bislang bei NEXUS Corp niemand explizit übernommen hat.", correct: true, feedback: "Genau. Enterprise Architecture Management schließt genau diese Lücke: Es verbindet die strategische, geschäftliche und technische Perspektive auf die Systemlandschaft, etwas, das bei organisch gewachsener Komplexität zwingend gebraucht wird." },
+        { text: "Weil Enterprise Architects in erster Linie für die Auswahl neuer Softwareprodukte zuständig sind.", correct: false, feedback: "Softwareauswahl ist nur ein kleiner Teil der Aufgabe. Enterprise Architecture Management umfasst die ganzheitliche Steuerung von Geschäfts-, Daten-, Applikations- und Technologiearchitektur." },
         { text: "Weil Priya nicht mehr in der Lage ist, technische Entscheidungen zu treffen. Nach Jahren in einer Führungsrolle sei es üblich, dass Führungskräfte zunehmend administrative Aufgaben übernehmen und operative Detailentscheidungen an Spezialisten abgeben.", correct: false, feedback: "Priya bleibt technisch kompetent. Die neue Rolle ergänzt ihr Team um spezialisierte Methodik für konzernweite Architekturarbeit, ersetzt sie aber nicht." },
       ],
     },
@@ -144,8 +144,8 @@ export const ML1 = {
       question: "Was unterscheidet die Herausforderung von 'Large Enterprise Systems' von der klassischen ES-Einführung, die Sie im Bachelor-Modul begleitet haben?",
       answers: [
         { text: "Es gibt keinen Unterschied: Die Herausforderungen sind identisch, nur die Firmengröße ändert sich. Größere Unternehmen benötigen lediglich mehr Lizenzen und Serverkapazität, die grundlegende Vorgehensweise bei der Systemeinführung bleibt unverändert.", correct: false, feedback: "Die Herausforderungen unterscheiden sich grundlegend: Bei der Ersteinführung ging es um Systemauswahl und -einführung, bei Large Enterprise Systems um Architektur-, Komplexitäts- und Integrationsmanagement bestehender, gewachsener Landschaften." },
-        { text: "Bei Large Enterprise Systems geht es nicht mehr um die Einführung einzelner Systeme, sondern um die Gestaltung, Steuerung und Transformation komplexer, bereits bestehender Systemlandschaften.", correct: true, feedback: "Genau. Das Bachelor-Modul behandelte die Frage 'Welches System führen wir ein?', das Master-Modul behandelt die deutlich komplexere Frage 'Wie steuern wir eine bereits gewachsene, fragmentierte Landschaft?'" },
         { text: "Large Enterprise Systems sind ausschließlich ein Cloud-Computing-Thema und haben nichts mit Organisation zu tun.", correct: false, feedback: "Cloud Computing ist ein wichtiger Aspekt, aber die zentrale Herausforderung liegt im Zusammenspiel von Organisation und Applikationsarchitektur, nicht in der Technologie allein." },
+        { text: "Bei Large Enterprise Systems geht es nicht mehr um die Einführung einzelner Systeme, sondern um die Gestaltung, Steuerung und Transformation komplexer, bereits bestehender Systemlandschaften.", correct: true, feedback: "Genau. Das Bachelor-Modul behandelte die Frage 'Welches System führen wir ein?', das Master-Modul behandelt die deutlich komplexere Frage 'Wie steuern wir eine bereits gewachsene, fragmentierte Landschaft?'" },
       ],
     },
     {
