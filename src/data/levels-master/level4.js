@@ -1,7 +1,7 @@
 export const ML4 = {
   intro: {
     charKey: "sophie",
-    message: "Wir alle sagen ständig 'NEXUS Corp ist komplex geworden'. Aber was heißt das eigentlich präzise? Bevor wir die Systemlandschaft konsolidieren können, müssen wir Komplexität messbar machen, sonst diskutieren wir nur über Bauchgefühle.",
+    message: "Wir alle sagen ständig 'NEXUS Corp ist komplex geworden'. Aber was heißt das eigentlich? Bevor wir die Systemlandschaft konsolidieren können, müssen wir Komplexität messbar machen, sonst diskutieren wir nur über Bauchgefühle.",
   },
   scenes: [
     {
