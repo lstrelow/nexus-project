@@ -6,10 +6,10 @@ export const ML4 = {
   scenes: [
     {
       id: "m4_1", type: "definition", charKey: "sophie",
-      charMessage: "Fangen wir grundlegend an. Was passiert eigentlich systematisch, wenn ein Unternehmen mit langer Tradition wächst?",
+      charMessage: "Fangen wir grundlegend an. Was passiert eigentlich, wenn ein Unternehmen mit langer Tradition wächst?",
       definition: {
         term: "Komplexitätsentstehung in wachsenden Unternehmen",
-        summary: "Enterprise Systems spiegeln die fundamentalen Prozesse und Strukturen eines Unternehmens wider. Unternehmen sind Systeme im Sinne der Systemtheorie und unterliegen einem stetigen Wandel, mit direkten Folgen für die Komplexität ihrer Enterprise Systems.",
+        summary: "Enterprise Systems spiegeln die fundamentalen Prozesse und Strukturen eines Unternehmens wider. Unternehmen unterliegen einem stetigen Wandel, mit direkten Folgen für die Komplexität ihrer Enterprise Systems.",
         aspects: [
           { icon: "📈", title: "Steigende Elementanzahl", text: "Mehr Elemente und Relationen im Unternehmen und im System" },
           { icon: "🔄", title: "Zunehmende Änderungen", text: "Häufigere Anpassungen im Zeitverlauf durch Wachstum und Marktveränderungen" },
